@@ -1,1 +1,34 @@
-<h2> <%=@user.email %>'s Dashboard %> </h2>
+<body class="dashboard">
+<h2> <%=@user.email %>'s Dashboard </h2>
+<div class='note-card'>
+<h4> Here is your note flip card </h4>
+
+</div>
+
+<div class='notes-uploaded'>
+  <h4> These are notes that you have uploaded </h4>
+   <% @user.notes.each do |note| %>
+   <%= note %>
+   <%end%>
+</div>
+
+<div class='notes-liked'>
+  <h4> These are notes that you have liked</h4>
+  <% @user.upvotes.each do |upvoted_note| %>
+  <%=  upvoted_note %>
+  <%end%>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+

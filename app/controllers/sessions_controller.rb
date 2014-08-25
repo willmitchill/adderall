@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to universities_path notice: "Hey there, #{user.name}! "
+      redirect_to universities_path notice: "Hey there, #{user.email}! "
     else
       flash.now[:alert] = "Uhh.. you fudged up the login, idiot"
       render :new

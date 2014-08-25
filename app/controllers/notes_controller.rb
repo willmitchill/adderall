@@ -12,7 +12,7 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(note_params)
+    @note = current_user.notes.new(note_params)
     # @note.user_id = current_user.id
     @note.course_id = params[:course_id]
 

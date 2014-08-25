@@ -60,3 +60,9 @@ Course.create!(
   university_id: 8,
   course_number: 230,
 )
+
+University.create!(
+  name: "Toronto Univ",
+  city: "Toronto"
+
+  )
