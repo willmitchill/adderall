@@ -7,7 +7,7 @@
      $.fancybox({
        type: 'html',
        autoSize: false,
-       content: '<embed src="'+this+'#nameddest=self&page=1&view=FitH,0&zoom=80,0,0" type="application/pdf" height="99%" width="100%" />',
+       content: '<iframe src="'+$(this).data("pdf-url")+'" height="99%" width="100%" />',
        beforeClose: function() {
          $(".fancybox-inner").unwrap();
        }
@@ -18,7 +18,7 @@
 </script>
 
 <div class="container">
-    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-1">Share a Test</button>
+  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-1">Share a Test</button>
     <div class="modal" id="modal-1" tabindex="1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -30,7 +30,7 @@
                 <%= form_for @note, url: url_for(controller: 'notes', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
                   <p>
                     <label>Upload a Test or Assignment!</label>
-                    <%= f.file_field :file %>
+                    <%= f.file_field :note_file %>
                     <div>
                       <%= f.label "Title" %><br>
                       <%= f.text_field "title" %>
@@ -45,24 +45,22 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
+</div>
 
 
 
-<a class="fancypdf" rel="group" href="https://learn.thoughtbot.com/backbone-sample.pdf"><img src="http://ww1.prweb.com/prfiles/2014/02/19/11599798/gI_89934_Study%20Hack%20-%20Get%20Better%20Grades.jpeg" alt="" /></a>
+
 
 
 <% @notes.order(:upvote_count).reverse.each do |note| %>
+
   <h2><%= note.title %></h2>
   <h3>Upvotes: <%= note.upvotes.count %>
-  <%= image_tag note.file, :class => "fancypdf", :rel => "800-1200" %>
-
-
+  <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
     <%= form_tag "/upvotes/#{note.id}" do %>
       <div>
         <%= submit_tag "Upvote" %>
       </div>
-    <% end %>
-
+  <% end %>
 <% end %>

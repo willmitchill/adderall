@@ -42,5 +42,5 @@ gem 'bcrypt-ruby'
 
 gem 'pry-rails', group: :development
 
-
+gem 'mini_magick'
 gem 'carrierwave'

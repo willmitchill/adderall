@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824233243) do
+ActiveRecord::Schema.define(version: 20140825182124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20140824233243) do
   end
 
   create_table "notes", force: true do |t|
-    t.string   "file"
+    t.string   "note_file"
     t.integer  "course_id"
     t.integer  "user_id"
     t.datetime "created_at"
