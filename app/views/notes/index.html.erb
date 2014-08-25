@@ -1,0 +1,7 @@
+<h1><%= @course.name %> </h1>
+<p>Find me in app/views/notes/index.html.erb</p>
+<%= link_to "Add a Note", new_course_note_path(@course.id) %>
+
+<% @notes.each do |note| %>
+  <%= image_tag note.file %>
+<% end %>
