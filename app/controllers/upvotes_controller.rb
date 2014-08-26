@@ -1,4 +1,4 @@
-gemclass UpvotesController < ApplicationController
+git gemclass UpvotesController < ApplicationController
   def new
     @upvote = Upvote.new(upvote_params)
   end
