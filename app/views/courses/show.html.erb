@@ -58,11 +58,8 @@
   <h2><%= note.title %></h2>
   <h3>Upvotes: <%= note.upvotes.count %>
   <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
-    <%= form_tag "/upvotes/#{note.id}" do %>
-      <div>
-        <%= submit_tag "Upvote" %>
-      </div>
-  <% end %>
+
+
 <% end %>
 
 <br>
@@ -81,7 +78,41 @@
 
 <% @course.questions.each do |question| %>
   <div id="question-container">
-    <% binding.pry %>
-    <%= question.question %>
+    <h3>Author: <%= User.find(question.user_id).firstname %></h3>
+    <h4><%= question.question %></h4>
+
+    <br>
+
+    <h3>Answers:</h3>
+
+    <% question.answers.each do |answer| %>
+      <h3>Answerer: <%= User.find(answer.user_id).firstname %></h3>
+      <%= answer.answer %>
+    <% end %>
+
+    <div id="answer-form">
+      <div class="container">
+        <button type="button" class="btn btn-default" id="button2" data-toggle="modal" data-target="#modal-2">Answer</button>
+          <div class="modal" id="modal-2" tabindex="1" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button id="close" type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Answer this question</h4>
+                  </div>
+                    <div class="modal-body">
+                      <%= form_for @answer, url: url_for(controller: 'answers', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
+                        <%= f.text_field :answer, size: "60x3" %>
+                        <%= hidden_field_tag "question_id", question.id %>
+                        <%= f.submit "Answer" %>
+                      <% end %>
+                    </div>
+                   <div class="modal-footer">
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
   </div>
 <% end %>

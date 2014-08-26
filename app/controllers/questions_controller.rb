@@ -1,5 +1,9 @@
 class QuestionsController < ApplicationController
 
+  def show
+    @user = User.find(user_id)
+  end
+  
 
   def new
     @question = Question.new(question_params)
