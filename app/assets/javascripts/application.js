@@ -60,5 +60,24 @@ $(document).ready(function() {
     $('.list-count').text(jobCount + ' items');
 
   });
+var transitionDuration = $('.cards .card').css('transition-duration');
+
+/* Click/tap to switch card */
+$('.card').on('click', function() {
+  var $cards = $(this).parent();
+  $cards.addClass('animating');
+  $cards.find('.card').toggleClass('active');
+  var timeOut = setTimeout(
+    function() {
+      // Some event halway through animation
+    }, transitionDuration);
+});
+
+/* On amimation end animate back */
+$('.card').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
+  function() {
+    $(this).parent().removeClass('animating');
+  }
+);
 
 });

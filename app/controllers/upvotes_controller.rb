@@ -11,7 +11,7 @@ class UpvotesController < ApplicationController
     note.upvote_count += 1
     note.save
     if @upvote.save
-      redirect_to university_course_path(note.course.university, note.course)
+      redirect_to university_course_path(note.course.university, note.course) notice: "thanks for the upvote!"
     end
   end
 
