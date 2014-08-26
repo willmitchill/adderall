@@ -1,22 +1,23 @@
 <body class="dashboard">
-<h2> <%=@user.email %>'s Dashboard </h2>
-<div class='note-card'>
-<h4> Here is your note flip card </h4>
-
+<h2> Dashboard </h2>
+<div class="card-container">
+  <input type="checkbox" name="flip" id="flip" class="flip-trigger hidden">
+  <div class="card front">
+    <span class="text">front</span>
+    <label for="flip" class="icon flip">↺</label>
+  </div>
+  <div class="card back">
+    <span class="text">back</span>
+    <label for="flip" class="icon next">➡</label>
+  </div>
 </div>
 
 <div class='notes-uploaded'>
-  <h4> These are notes that you have uploaded </h4>
-   <% @user.notes.each do |note| %>
-   <%= note %>
-   <%end%>
+
 </div>
 
 <div class='notes-liked'>
-  <h4> These are notes that you have liked</h4>
-  <% @user.upvotes.each do |upvoted_note| %>
-  <%=  upvoted_note %>
-  <%end%>
+ 
 
 
 </div>

@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to universities_path, notice: "Yo #{@user.firstname}, time to get you some A's!"
     else
-      render :new
+      render :new 
     end
   end
 
