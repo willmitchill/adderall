@@ -1,18 +1,17 @@
 class AnswersController < ApplicationController
 
   def new
-    @answer = Answer.new(answer_params)
+    @answer = Answer.new
   end
 
   def create
-    @answer = Answer.new
+    @answer = Answer.new(answer_params)
     @answer.user_id = current_user.id
-    @answer.question_id = params[:note_id]
-    note = Note.find(params[:note_id])
-    note.upvote_count += 1
-    note.save
-    if @upvote.save
-      redirect_to university_course_path(note.course.university, note.course)
+    @answer.question_id = params[:question_id]
+
+    if @answer.save
+
+      redirect_to university_course_path(params[:university_id], params[:course_id])
     end
   end
 
@@ -24,7 +23,10 @@ class AnswersController < ApplicationController
 
   protected
 
-  def upvote_params
+  def answer_params
+    params.require(:answer).permit(
+      :answer
+    )
   end
 
 end
