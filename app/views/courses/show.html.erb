@@ -64,3 +64,24 @@
       </div>
   <% end %>
 <% end %>
+
+<br>
+<hr>
+
+<h2>Class Question Board</h2>
+
+
+<div>
+  <%= form_for @question, url: url_for(controller: 'questions', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
+    <p>Ask a question about this course</p>
+    <%= f.text_area :question, size: "60x8" %>
+    <%= f.submit "Ask" %>
+  <% end %>
+</div>
+
+<% @course.questions.each do |question| %>
+  <div id="question-container">
+    <% binding.pry %>
+    <%= question.question %>
+  </div>
+<% end %>

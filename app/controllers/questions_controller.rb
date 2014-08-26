@@ -1,32 +1,32 @@
-class QuestionController < ApplicationController
+class QuestionsController < ApplicationController
 
 
   def new
-    @quation = Question.new(question_params)
+    @question = Question.new(question_params)
   end
 
   def create
-    @question = Question.new
+    @question = Question.new(question_params)
     @question.user_id = current_user.id
     @question.course_id = params[:course_id]
-    course = Course.find(params[:course_id])
 
-    note.save
     if @question.save
-      redirect_to university_course_path(course.university, course)
+      redirect_to university_course_path(@question.course.university.id, @question.course.id)
     end
   end
 
   def destroy
-    @upvote = Upvote.find(params[:id])
-    @upvote.destroy
+    @question = Question.find(params[:id])
+    @question.destroy
     redirect_to university_course_notes_path
   end
 
   protected
 
   def question_params
-
+    params.require(:question).permit(
+      :question
+    )
   end
 
 end
