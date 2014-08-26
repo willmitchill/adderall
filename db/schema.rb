@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825220408) do
+ActiveRecord::Schema.define(version: 20140826201712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,12 +67,13 @@ ActiveRecord::Schema.define(version: 20140825220408) do
 
   create_table "upvotes", force: true do |t|
     t.integer  "user_id"
-    t.integer  "note_id"
+    t.integer  "obj_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
-  add_index "upvotes", ["note_id"], name: "index_upvotes_on_note_id", using: :btree
+  add_index "upvotes", ["obj_id"], name: "index_upvotes_on_obj_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"

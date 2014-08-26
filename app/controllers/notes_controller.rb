@@ -18,6 +18,8 @@ class NotesController < ApplicationController
 
     if @note.save
       redirect_to university_course_path(@note.course.university.id, @note.course.id)
+    else
+      raise @note.errors.inspect
     end
   end
 
