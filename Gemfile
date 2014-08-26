@@ -44,3 +44,4 @@ gem 'pry-rails', group: :development
 
 
 gem 'carrierwave'
+gem 'mini_magick'

@@ -2,22 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.dashboard div{
-  border-style:solid;
-  border-color:black;
+.dashboard{
+
 }
 
 .note-card{
   float:right;
-  
-}
-.notes-uploaded{
-  float:left;
+  background-color:red;
+  color:white;
+  margin-right: 40px;
+  height:200px;
   
 }
 
 .notes-liked{
-  float:bottom;
+  float:left;
+  background-color:blue;
+  color:white;
+  margin-left:40px;
+  height: 200px;
   
 
 }
