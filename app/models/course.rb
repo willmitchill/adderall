@@ -4,4 +4,6 @@ class Course < ActiveRecord::Base
   has_many :answers
   has_many :notes
   has_many :questions
+  validates :name, presence: true
+  validates :course_number, presence: true
 end
