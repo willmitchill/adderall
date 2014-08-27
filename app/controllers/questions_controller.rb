@@ -15,7 +15,9 @@ class QuestionsController < ApplicationController
     @question.course_id = params[:course_id]
 
     if @question.save
-      redirect_to university_course_path(@question.course.university.id, @question.course.id) notice: "Question submitted succesfully"
+      redirect_to university_course_path(@question.course.university.id, @question.course.id, notice: "Question submitted succesfully")
+    else
+      redirect_to university_course_path(@question.course.university.id, @question.course.id, notice: "Question not submitted succesfully")
     end
   end
 
