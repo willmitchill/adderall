@@ -27,7 +27,12 @@ class CoursesController < ApplicationController
     @course = current_user.courses.new(course_params)
     @course.university_id = params[:university_id]
     if @course.save
-      redirect_to university_course_path(@course.university, @course) 
+
+      redirect_to university_course_path(@course.university, @course, notice: "Course submitted successfully")
+    else
+      redirect_to university_path(@course.university_id, notice: "Not submitted")
+
+
     end
   end
 

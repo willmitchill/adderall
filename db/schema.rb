@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140826230542) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -34,6 +35,18 @@ ActiveRecord::Schema.define(version: 20140826230542) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "flashcards", force: true do |t|
+    t.string   "title"
+    t.string   "content"
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "flashcards", ["course_id"], name: "index_flashcards_on_course_id", using: :btree
+  add_index "flashcards", ["user_id"], name: "index_flashcards_on_user_id", using: :btree
 
   create_table "notes", force: true do |t|
     t.string   "note_file"

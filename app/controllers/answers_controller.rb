@@ -10,7 +10,12 @@ class AnswersController < ApplicationController
     @answer.question_id = params[:question_id]
 
     if @answer.save
+
       redirect_to university_course_path(params[:university_id], params[:course_id],notice: "Answer submitted successfully!")
+
+    else
+      notice: "Answer not submitted"
+
     end
   end
 
