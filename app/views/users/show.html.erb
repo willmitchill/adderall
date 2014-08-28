@@ -1,20 +1,28 @@
 <body class="dashboard">
 <h2> Dashboard </h2>
 <div class="cards" id="card-3456">
-  <div class="card-1 card active">1</div>
-  <div class="card-2 card">2</div>
+  <div class="card-1 card active">Question</div>
+  <div class="card-2 card">Answer</div>
 </div>
 </div>
 
-<div class='notes-uploaded'>
+<section class='flashcard-form'>
+<h3> create a flashcard</h3>
+<%= form_for(Flashcard.new, url: url_for(controller: 'flashcards', action: 'create')) do |f| %>
+  <div>
+    <%= f.label "title" %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label "content" %><br>
+    <%= f.number_field :content %>
+  </div>
+  <div>
+    <%= f.submit "Submit" %> 
+  </div>
+  <%end%>
+</section>
 
-</div>
-
-<div class='notes-liked'>
- 
-
-
-</div>
 
 
 

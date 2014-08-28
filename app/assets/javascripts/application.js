@@ -60,6 +60,9 @@ $(document).ready(function() {
     $('.list-count').text(jobCount + ' items');
 
   });
+
+// flashcards
+
 var transitionDuration = $('.cards .card').css('transition-duration');
 
 /* Click/tap to switch card */
