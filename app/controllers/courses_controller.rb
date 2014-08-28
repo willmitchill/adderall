@@ -25,11 +25,9 @@ class CoursesController < ApplicationController
 
   def create
     @course = current_user.courses.new(course_params)
-
     @course.university_id = params[:university_id]
     if @course.save
-      redirect_to university_course_path(@course.university, @course) notice: "Course submitted successfully"
-
+      redirect_to university_course_path(@course.university, @course) 
     end
   end
 

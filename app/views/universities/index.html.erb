@@ -10,9 +10,9 @@
 
 <p></p>
 <ul id="list">
-  <% @universities.each do |university| %>
+  <% @universities.order(:name).each do |university| %>
     <li class="box effect7"><div class="each">
-      <h2><%= link_to university.name, university_path(university) %></h2>
+      <h4><%= link_to university.name, university_path(university) %></h4>
       <p><%= university.city %><p>
     </div></li>
   <% end %>

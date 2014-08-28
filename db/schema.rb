@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826201712) do
+ActiveRecord::Schema.define(version: 20140826230542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140826201712) do
     t.string   "answer"
     t.integer  "question_id"
     t.integer  "user_id"
-    t.integer  "upvote_count"
+    t.integer  "upvote_count", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 20140826201712) do
 
   create_table "questions", force: true do |t|
     t.string   "question"
-    t.integer  "upvote_count"
+    t.integer  "upvote_count", default: 0
     t.integer  "user_id"
     t.integer  "course_id"
     t.datetime "created_at"

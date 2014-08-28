@@ -3,8 +3,8 @@ $(document).ready(function() {
 
 
   $( ".answer-upvote" ).on( "click", function() {
-    type = $( this ).attr("type");
-    id = $( this ).attr("obj_id");
+    var type = $( this ).attr("type");
+    var id = $( this ).attr("obj_id");
     $.ajax({
       type: 'POST',
       data: {
@@ -13,14 +13,14 @@ $(document).ready(function() {
       },
       url: "/upvotes/",
       }).done(function() {
-        alert("It worked");
+        $( ".answer-upvote" ).remove();
       });
     });
-    
+
 
   $( ".question-upvote" ).on( "click", function() {
-    type = $( this ).attr("type");
-    id = $( this ).attr("obj_id");
+    var type = $( this ).attr("type");
+    var id = $( this ).attr("obj_id");
     $.ajax({
       type: 'POST',
       data: {
@@ -35,8 +35,8 @@ $(document).ready(function() {
 
 
     $( ".note-upvote" ).on( "click", function() {
-      type = $( this ).attr("type");
-      id = $( this ).attr("obj_id");
+      var type = $( this ).attr("type");
+      var id = $( this ).attr("obj_id");
       $.ajax({
         type: 'POST',
         data: {
@@ -45,7 +45,7 @@ $(document).ready(function() {
         },
         url: "/upvotes/",
         }).done(function() {
-          alert("It worked");
+          $( ".note-upvote" ).remove();
         });
       });
 
