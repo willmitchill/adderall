@@ -1,3 +1,42 @@
 // Place all the styles related to the university controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#background {
+  background: url("http://i1264.photobucket.com/albums/jj493/wmitchel1/FLBxjBd_zpsee71a120.jpg") center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+
+
+}
+
+
+#list-box {
+  margin-left: 20%;
+  background: rgba(255, 255, 255, 0.69);
+  width: 800px;
+
+  #list {
+    h4 {
+      font-family: 'Questrial', sans-serif;
+      font-size: 30px;
+    }
+  }
+}
+
+
+
+input, button, select, textarea {
+font-family: inherit;
+font-size: inherit;
+line-height: inherit;
+margin: 50px;
+border-color: chartreuse;
+border-style: solid;
+border-radius: 3px;
+padding: 11px;
+border-radius: 25px;
+outline: none;
+}

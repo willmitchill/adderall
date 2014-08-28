@@ -1,19 +1,19 @@
-<h1>Adderall</h1>
+<div id="background">
+  <div id="list-box">
+    <div class="index">
+    <span class="search-box"><input class="type_text" id="search-text" placeholder="Search">
+    <span class="list-count"></span></span>
 
 
 
-<div class="index">
-<span class="search-box"><input class="type_text" id="search-text" placeholder="search requests">
-<span class="list-count"></span></span>
-
-
-
-<p></p>
-<ul id="list">
-  <% @universities.order(:name).each do |university| %>
-    <li class="box effect7"><div class="each">
-      <h4><%= link_to university.name, university_path(university) %></h4>
-      <p><%= university.city %><p>
-    </div></li>
-  <% end %>
-</ul>
+    <p></p>
+      <ul id="list">
+        <% @universities.order(:name).each do |university| %>
+          <li class="box effect7"><div class="each">
+            <h4><%= link_to university.name, university_path(university) %></h4>
+            <p><%= university.city %><p>
+          </div></li>
+        <% end %>
+      </ul>
+  </div>
+</div>
