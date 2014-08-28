@@ -56,9 +56,11 @@
 <% @notes.order(:upvote_count).reverse.each do |note| %>
 
   <h2><%= note.title %></h2>
-  <h3>Upvotes:
+  <h4>Upvotes: <%= note.upvote_count %></h4>
   <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
-  <button type="NoteUpvote" obj_id="<%= note.id %>" class="note-upvote">Upvote</button>
+  <% if note.note_upvotes.where(user_id: current_user.id) == [] %>
+    <button type="NoteUpvote" obj_id="<%= note.id %>" class="note-upvote">Upvote</button>
+  <% end %>
 
 <% end %>
 
@@ -80,6 +82,7 @@
   <div id="question-container">
     <h3>Author: <%= User.find(question.user_id).firstname %></h3>
     <h4><%= question.question %></h4>
+    <h4>Upvotes: <%= question.upvote_count %></h4>
     <button type="QuestionUpvote" obj_id="<%= question.id %>" class="question-upvote">Upvote</button>
     <br>
 
@@ -87,6 +90,7 @@
 
     <% question.answers.each do |answer| %>
       <h3>Answerer: <%= User.find(answer.user_id).firstname %></h3>
+      <h4>Upvotes: <%= answer.upvote_count %></h4>
       <%= answer.answer %>
       <button type="AnswerUpvote" obj_id="<%= answer.id %>" class="answer-upvote">Upvote</button>
     <% end %>

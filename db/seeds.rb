@@ -5,64 +5,374 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Course.create!(
-  name: "Thea 100",
-  user_id: 1,
-  university_id: 3,
-  course_number: 100,
-)
 
-Course.create!(
-  name: "Econ 270",
-  user_id: 1,
-  university_id: 3,
-  course_number: 270,
-)
 
-Course.create!(
-  name: "Bio 230",
-  user_id: 1,
-  university_id: 4,
-  course_number:230,
-)
-
-Course.create!(
-  name: "Chem 325",
-  user_id: 1,
-  university_id: 4,
-  course_number: 325,
-)
-
-Course.create!(
-  name: "PE 400",
-  user_id: 2,
-  university_id: 5,
-  course_number: 400,
-)
-
-Course.create!(
-  name: "HBO 100",
-  user_id: 1,
-  university_id: 7,
-  course_number: 100,
-)
-
-Course.create!(
-  name: "Comm 300",
-  user_id: 1,
-  university_id: 8,
-  course_number: 300,
-)
-
-Course.create!(
-  name: "Eng 230",
-  user_id: 1,
-  university_id: 8,
-  course_number: 230,
+University.create!(
+  name: "University of Toronto",
+  city: "Toronto"
 )
 
 University.create!(
-  name: "Toronto Univ",
-  city: "Toronto"
+  name: "University of Calgary",
+  city: "Calgary"
+)
 
-  )
+University.create!(
+  name: "University of Victoria",
+  city: "Victoria"
+)
+
+University.create!(
+  name: "University of Alberta",
+  city: "Edmonton"
+)
+
+University.create!(
+  name: "UBC",
+  city: "Vancouver"
+)
+
+University.create!(
+  name: "McGill",
+  city: "Montreal"
+)
+
+University.create!(
+  name: "Concordia",
+  city: "Montreal"
+)
+
+University.create!(
+  name: "Mount Royal University",
+  city: "Calgary"
+)
+
+University.create!(
+  name: "York University",
+  city: "Toronto"
+)
+
+University.create!(
+  name: "Université de Montréal",
+  city: "Montreal"
+)
+
+University.create!(
+  name: "Athabasca University",
+  city: "Athabasca"
+)
+
+University.create!(
+  name: "Ryerson University",
+  city: "Toronto"
+)
+
+University.create!(
+  name: "Université du Québec à Montréal",
+  city: "Montreal"
+)
+
+University.create!(
+  name: "University of Ottawa",
+  city: "Ottawa"
+)
+
+University.create!(
+  name: "University of Waterloo",
+  city: "Waterloo"
+)
+
+University.create!(
+  name: "Simon Fraser University",
+  city: "Vancouver"
+)
+
+University.create!(
+  name: "University of Western Ontario",
+  city: "London"
+)
+
+University.create!(
+  name: "University of Manitoba",
+  city: "Winnipeg"
+)
+
+University.create!(
+  name: "McMaster University",
+  city: "Hamilton"
+)
+
+University.create!(
+  name: "Carleton University",
+  city: "Ottawa"
+)
+
+University.create!(
+  name: "University of Guelph",
+  city: "Guelph"
+)
+
+University.create!(
+  name: "Grant MacEwan University",
+  city: "Edmonton"
+)
+
+University.create!(
+  name: "Kwantlen Polytechnic University",
+  city: "Surrey"
+)
+
+University.create!(
+  name: "Queen's University",
+  city: "Kingston"
+)
+
+University.create!(
+  name: "University of Saskatchewan",
+  city: "Saskatoon"
+)
+
+University.create!(
+  name: "Brock University",
+  city: "St. Catharines"
+)
+
+University.create!(
+  name: "Memorial University of Newfoundland",
+  city: "St. John's"
+)
+
+University.create!(
+  name: "University of Windsor",
+  city: "Windsor"
+)
+
+University.create!(
+  name: "Dalhousie University",
+  city: "Halifax"
+)
+
+University.create!(
+  name: "Wilfrid Laurier University",
+  city: "Waterloo"
+)
+
+University.create!(
+  name: "Université de Sherbrooke",
+  city: "Sherbrooke"
+)
+
+University.create!(
+  name: "Thompson Rivers University",
+  city: "Kamloops"
+)
+
+University.create!(
+  name: "University of Regina",
+  city: "Regina"
+)
+
+University.create!(
+  name: "University of Winnipeg",
+  city: "Winnipeg"
+)
+
+University.create!(
+  name: "HEC Montréal",
+  city: "Montreal"
+)
+
+University.create!(
+  name: "Université du Québec à Trois-Rivières",
+  city: "Trois-Rivières"
+)
+
+University.create!(
+  name: "University of New Brunswick",
+  city: "Fredericton"
+)
+
+University.create!(
+  name: "University of Ontario Institute of Technology",
+  city: "Oshawa"
+)
+
+University.create!(
+  name: "Laurentian University",
+  city: "Sudbury"
+)
+
+University.create!(
+  name: "University of the Fraser Valley",
+  city: "Abbotsford"
+)
+
+University.create!(
+  name: "Trent University",
+  city: "Peterborough"
+)
+
+University.create!(
+  name: "University of the Fraser Valley",
+  city: "Abbotsford"
+)
+
+University.create!(
+  name: "Capilano University",
+  city: "Vancouver"
+)
+
+University.create!(
+  name: "Lakehead University",
+  city: "Thunder Bay"
+)
+
+University.create!(
+  name: "Saint Mary's University",
+  city: "Halifax"
+)
+
+University.create!(
+  name: "Nipissing University",
+  city: "North Bay"
+)
+
+University.create!(
+  name: "Vancouver Island University",
+  city: "Nanaimo"
+)
+
+University.create!(
+  name: "Université de Moncton",
+  city: "Moncton"
+)
+
+University.create!(
+  name: "Université du Québec à Chicoutimi",
+  city: "Chicoutimi"
+)
+
+University.create!(
+  name: "Saint Francis Xavier University",
+  city: "Antigonish"
+)
+
+University.create!(
+  name: "Université du Québec à Rimouski",
+  city: "Rimouski"
+)
+
+University.create!(
+  name: "Université du Québec en Outaouais",
+  city: "Gatineau"
+)
+
+University.create!(
+  name: "University of Prince Edward Island",
+  city: "Charlottetown"
+)
+
+University.create!(
+  name: "Acadia University",
+  city: "Wolfville"
+)
+
+University.create!(
+  name: "OCAD University",
+  city: "Toronto"
+)
+
+University.create!(
+  name: "Brandon University",
+  city: "Brandon"
+)
+
+University.create!(
+  name: "Cape Breton University",
+  city: "Sydney"
+)
+
+University.create!(
+  name: "University of Northern British Columbia",
+  city: "Prince George"
+)
+
+University.create!(
+  name: "Mount Saint Vincent University",
+  city: "Halifax"
+)
+
+University.create!(
+  name: "Mount Allison University",
+  city: "Sackville"
+)
+
+University.create!(
+  name: "St. Thomas University",
+  city: "Fredericton"
+)
+
+University.create!(
+  name: "Bishop's University",
+  city: "Sherbrooke"
+)
+
+University.create!(
+  name: "Emily Carr University of Art and Design",
+  city: "Vancouver"
+)
+
+University.create!(
+  name: "Royal Roads University",
+  city: "Victoria"
+)
+
+University.create!(
+  name: "Camosun College",
+  city: "Victoria"
+)
+
+University.create!(
+  name: "SAIT",
+  city: "Calgary"
+)
+
+University.create!(
+  name: "Humber College",
+  city: "Toronto"
+)
+
+University.create!(
+  name: "BCIT",
+  city: "Vancouver"
+)
+
+University.create!(
+  name: "Centennial College",
+  city: "Toronto"
+)
+
+University.create!(
+  name: "Georgian College",
+  city: "Barrie"
+)
+
+University.create!(
+  name: "Niagra College",
+  city: "Niagra"
+)
+
+University.create!(
+  name: "Lakehead University",
+  city: "Thunder Bay"
+)
+
+University.create!(
+  name: "Yukon College",
+  city: "Yukon"
+)
+
+University.create!(
+  name: "Bow Valley College",
+  city: "Calgary"
+)
