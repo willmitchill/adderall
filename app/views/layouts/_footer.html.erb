@@ -1,14 +1,16 @@
 <header>
   <div id=navbar>
-    <img id="main-logo" src="http://i1344.photobucket.com/albums/p652/meganryll/adderralllogo_zpse37780d3.png">
-    <small>
-      <% if current_user %>
-        Get yourself some A's <%= current_user.firstname %> <%= link_to "Log out", session_path("current"), method: :delete %><%=link_to "Dashboard", profile_path%>
-        <%= link_to "Universities", universities_path %>
-      <% else %>
-        <%= link_to "Log In", new_session_path %>  <%= link_to "Sign Up", new_user_path %>
-      <% end %>
-    </small>
+    <a href="/landing"><img id="main-logo" src="http://i1344.photobucket.com/albums/p652/meganryll/adderralllogo_zpse37780d3.png"></a>
+    <div class="nav-butz">
+      <small>
+        <% if current_user %>
+        <%= link_to "Log out", session_path("current"), method: :delete %><%=link_to "Dashboard", profile_path%>
+          <%= link_to "Universities", universities_path %>
+        <% else %>
+          <%= link_to "Log In", new_session_path %>  <%= link_to "Sign Up", new_user_path %>
+        <% end %>
+      </small>
+    </div>
   </div>
   <small>
 
