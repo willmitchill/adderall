@@ -74,7 +74,7 @@ $('.card').on('click', function() {
 });
 
 /* On amimation end animate back */
-$('.card').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd', 
+$('.card').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend MSTransitionEnd',
   function() {
     $(this).parent().removeClass('animating');
   }

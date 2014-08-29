@@ -1,123 +1,131 @@
-<h1><%= @course.name %></h1>
-<p>Add a test, assignment or note and help out your peers!</p>
+<div id="notes-qa-container">
+  <div id="note-container">
+    <span><%= @course.name %></span>
 
-<script type="text/javascript">
-  $(document).ready(function() {
-    $(".fancypdf").click(function(){
-     $.fancybox({
-       type: 'html',
-       autoSize: false,
-       content: '<iframe src="'+$(this).data("pdf-url")+'" height="99%" width="100%" />',
-       beforeClose: function() {
-         $(".fancybox-inner").unwrap();
-       }
-     }); //fancybox
-     return false;
-    }); //click
-  });
-</script>
 
-<div class="container">
-  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-1">Share a Test</button>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $(".fancypdf").click(function(){
+        $.fancybox({
+          type: 'html',
+          autoSize: false,
+          content: '<iframe src="'+$(this).data("pdf-url")+'" height="99%" width="100%" />',
+          beforeClose: function() {
+            $(".fancybox-inner").unwrap();
+          }
+        }); //fancybox
+        return false;
+      }); //click
+    });
+    </script>
+
+
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-1">Upload</button>
     <div class="modal" id="modal-1" tabindex="1" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button id="close" type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Share a Test</h4>
-            </div>
-              <div class="modal-body">
-                <%= form_for @note, url: url_for(controller: 'notes', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
-                  <p>
-                    <label>Upload a Test or Assignment!</label>
-                    <%= f.file_field :note_file %>
-                    <div>
-                      <%= f.label "Title" %><br>
-                      <%= f.text_field "title" %>
-                    </div>
-                    <div>
-                      <%= f.submit "Submit" %>
-                    </div>
-                  </p>
-                <% end %>
+          </div>
+          <div class="modal-body">
+            <%= form_for @note, url: url_for(controller: 'notes', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
+            <p>
+              <label>Upload a Test or Assignment!</label>
+              <%= f.file_field :note_file %>
+              <div>
+                <%= f.label "Title" %><br>
+                <%= f.text_field "title" %>
               </div>
-             <div class="modal-footer">
-            </div>
+              <div>
+                <%= f.submit "Submit" %>
+              </div>
+            </p>
+            <% end %>
+          </div>
+          <div class="modal-footer">
           </div>
         </div>
+      </div>
     </div>
-</div>
+
+    <p>Share a test, assignment or note.</p>
 
 
 
 
 
+    <% @notes.order(:upvote_count).reverse.each do |note| %>
+    <div id="notes">
+      <h2><%= note.title %></h2>
 
-<% @notes.order(:upvote_count).reverse.each do |note| %>
-
-  <h2><%= note.title %></h2>
-  <h4>Upvotes: <%= note.upvote_count %></h4>
-  <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
-  <% if note.note_upvotes.where(user_id: current_user.id) == [] %>
-    <button type="NoteUpvote" obj_id="<%= note.id %>" class="note-upvote">Upvote</button>
-  <% end %>
-
-<% end %>
-
-<br>
-<hr>
-
-<h2>Class Question Board</h2>
+      <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
+      <% if note.note_upvotes.where(user_id: current_user.id) == [] %>
+      <button type="NoteUpvote" obj_id="<%= note.id %>" class="note-upvote"><span class="glyphicon glyphicon-heart"></span></button>
+      <span><%= note.upvote_count %>&nbsp Likes</span>
+    </div>
+    <% end %>
 
 
-<div>
-  <%= form_for @question, url: url_for(controller: 'questions', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
-    <p>Ask a question about this course</p>
-    <%= f.text_area :question, size: "60x8" %>
-    <%= f.submit "Ask" %>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+  <br>
+  <hr>
+  <div id="question-answer-container">
+    <h2>Class Question Board</h2>
 
-<% @course.questions.each do |question| %>
-  <div id="question-container">
-    <h3>Author: <%= User.find(question.user_id).firstname %></h3>
-    <h4><%= question.question %></h4>
-    <h4>Upvotes: <%= question.upvote_count %></h4>
-    <button type="QuestionUpvote" obj_id="<%= question.id %>" class="question-upvote">Upvote</button>
-    <br>
 
-    <h3>Answers:</h3>
+    <div>
+      <%= form_for @question, url: url_for(controller: 'questions', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
+      <p>Ask a question about this course</p>
+      <%= f.text_area :question, size: "60x8" %>
+      <%= f.submit "Ask" %>
+      <% end %>
+    </div>
 
-    <% question.answers.each do |answer| %>
+    <% @course.questions.each do |question| %>
+    <div id="question-container">
+      <h3>Author: <%= User.find(question.user_id).firstname %></h3>
+      <h4><%= question.question %></h4>
+      <h4>Upvotes: <%= question.upvote_count %></h4>
+      <button type="QuestionUpvote" obj_id="<%= question.id %>" class="question-upvote">Upvote</button>
+      <br>
+
+      <h3>Answers:</h3>
+
+      <% question.answers.each do |answer| %>
       <h3>Answerer: <%= User.find(answer.user_id).firstname %></h3>
       <h4>Upvotes: <%= answer.upvote_count %></h4>
       <%= answer.answer %>
       <button type="AnswerUpvote" obj_id="<%= answer.id %>" class="answer-upvote">Upvote</button>
-    <% end %>
+      <% end %>
 
-    <div id="answer-form">
-      <div class="container">
+      <div id="answer-form">
+
         <button type="button" class="btn btn-default" id="button2" data-toggle="modal" data-target="#modal-2">Answer</button>
-          <div class="modal" id="modal-2" tabindex="1" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button id="close" type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Answer this question</h4>
-                  </div>
-                    <div class="modal-body">
-                      <%= form_for @answer, url: url_for(controller: 'answers', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
-                        <%= f.text_field :answer, size: "60x3" %>
-                        <%= hidden_field_tag "question_id", question.id %>
-                        <%= f.submit "Answer" %>
-                      <% end %>
-                    </div>
-                   <div class="modal-footer">
-                  </div>
-                </div>
+        <div class="modal" id="modal-2" tabindex="1" role="dialog">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button id="close" type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Answer this question</h4>
               </div>
+              <div class="modal-body">
+                <%= form_for @answer, url: url_for(controller: 'answers', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
+                <%= f.text_field :answer, size: "60x3" %>
+                <%= hidden_field_tag "question_id", question.id %>
+                <%= f.submit "Answer" %>
+                <% end %>
+              </div>
+              <div class="modal-footer">
+              </div>
+            </div>
           </div>
+        </div>
       </div>
     </div>
   </div>
-<% end %>
+  <% end %>
+
+</div>

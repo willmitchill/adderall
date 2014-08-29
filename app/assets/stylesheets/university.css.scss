@@ -3,40 +3,49 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #background {
-  background: url("http://i1264.photobucket.com/albums/jj493/wmitchel1/FLBxjBd_zpsee71a120.jpg") center fixed;
+  background: url("http://i1264.photobucket.com/albums/jj493/wmitchel1/07t2mb2_zps5de09e82.gif") center fixed;
   // -webkit-background-size: cover;
   // -moz-background-size: cover;
   // -o-background-size: cover;
   // background-size: cover;
-
-
 }
 
 
 #list-box {
-  margin-left: 20%;
+  margin-left: 18%;
   background: rgba(255, 255, 255, 0.69);
   width: 800px;
+  padding: 30px;
+  border: 8px solid rgba(108, 171, 227, 0.7);
+
+
+  #find-title {
+
+    span {
+      text-shadow: 2px 2px #6ba3e0;
+    }
+    p {
+      margin: 0 0 20px 20%;
+      font-size: 40px;
+    }
+
+  }
+
+
+  .type_text {
+    margin: 0 10px 30px 240px;
+    border-style: none;
+    padding: 5px;
+    border-radius: 5px;
+  }
 
   #list {
     h4 {
       font-family: 'Questrial', sans-serif;
       font-size: 30px;
+    a:hover {
+      text-decoration: none;
+    }
     }
   }
-}
-
-
-
-input, button, select, textarea {
-font-family: inherit;
-font-size: inherit;
-line-height: inherit;
-margin: 50px;
-border-color: chartreuse;
-border-style: solid;
-border-radius: 3px;
-padding: 11px;
-border-radius: 25px;
-outline: none;
 }
