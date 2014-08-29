@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :landing, only: [:show, :index]
 
   resources :universities do
@@ -7,8 +8,12 @@ Rails.application.routes.draw do
     end
   end
 
-   resources :users, only: [:create, :new]
+  resources :users, only: [:create, :new] 
 
+  resources :cardsets
+  resources :flashcards
+  
+  
   get '/profile', to: 'users#show'
 
   resources :sessions
