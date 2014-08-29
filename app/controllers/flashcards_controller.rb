@@ -18,18 +18,17 @@ class FlashcardsController < ApplicationController
   def create
     @flashcard = current_user.flashcards.new(flashcard_params)
     if @flashcard.save
-      redirect_to flashcard_path  notice: "#{@flashcard.title} was submitted successfully!"
+      redirect_to profile_path  notice: "#{@flashcard.title} was submitted successfully!"
     else
-      render :new
+      redirect_to profile_path
     end
 
   end
 
   def update
     @flashcard = Flashcard.find(params[:id])
-
     if @flashcard.update_attributes(flashcard_params)
-      redirect_to flashcard_path(@flashcard) #???
+      redirect_to profile_path #???
     else
       render :edit
     end
@@ -41,6 +40,13 @@ class FlashcardsController < ApplicationController
     @flashcard = Flashcard.find(params[:id])
     @flashcard.destroy
     redirect_to movies_path
+  end
+  protected
+
+  def flashcard_params
+    params.require(:flashcard).permit(
+      :content, :title
+    )
   end
 
 

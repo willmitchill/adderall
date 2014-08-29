@@ -23,6 +23,7 @@
 
 }
 
+
 .show-course {
   display:none;
 }
@@ -43,6 +44,7 @@
   position: fixed;
   background-color: #2a2a2a;
   padding: 9px 45px 0 0;
+  z-index:1000;
 }
 
 #navbar img {
@@ -97,21 +99,23 @@ $cardStagger: 4px;
 $cardBorderRadius: 3px;
 $cardColor: white;
 
+
 .cards {
   z-index: $cardZ;
-  width: $cardWidth;
+  // width: $cardWidth;
   height: $cardHeight;
   margin: 40px auto;
+  margin-right:100px;
   position: relative;
   top: $cardStagger;
   left: $cardStagger;
   cursor: pointer;
-  float: right;
   .card {
       position: absolute;
       background: $cardColor;
       height: 100%;
       width: 100%;
+      float:left;
       font-size: 2em;
       font-family: 'Cutive', serif;
       line-height: $cardHeight;
@@ -150,7 +154,20 @@ $cardColor: white;
     left: -$cardStagger;
   }
 
+}
 
+#flashcard-form {
+  float: left!important;
+  display: inline;
+  color: red;
 
 
 }
+
+#cardset-form{
+  display: inline;
+
+
+}
+
+
