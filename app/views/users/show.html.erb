@@ -31,23 +31,26 @@
 </section>
 
 
-<div class="cards col-sm-6" id="card-3456">
+<div class="col-sm-6" id="card-3456">
 
-  
+<!-- question card -->
+ 
   <% current_user.flashcards.each do |card|%>
+  <div class="cards">
+  <div class="card-1 card active"> 
 
-  <div class="card-1 card active">
   <%= card.title %>
-  <%end%>
+  </div><br>
 
-  </div>
+<!-- answer card -->
 
-    <% current_user.flashcards.each do |card|%>
-    <div class="card-2 card">
+ <div class="card-2 card">
   <%= card.content %>
+ 
+  </div>
+  </div>
   <%end%>
-  </div>
-  </div>
+  </div><br>
 
   <div class = "cardset">
   <h3> Here are your flashcard sets</h3>
