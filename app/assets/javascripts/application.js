@@ -33,12 +33,49 @@ $(document).ready(function() {
 
       //extends :contains to be case insensitive
   $.extend($.expr[':'], {
-  'containsi': function(elem, i, match, array)
-  {
-    return (elem.textContent || elem.innerText || '').toLowerCase()
-    .indexOf((match[3] || "").toLowerCase()) >= 0;
-  }
-});
+    'containsi': function(elem, i, match, array)
+    {
+      return (elem.textContent || elem.innerText || '').toLowerCase()
+      .indexOf((match[3] || "").toLowerCase()) >= 0;
+    }
+  });
+
+  // amys code
+
+  $("#note .notes").not(":containsi('" + searchSplit + "')").each(function(e)   {
+    $(this).addClass('hiding out').removeClass('in');
+    setTimeout(function() {
+        $('.out').addClass('hidden');
+      }, 600);
+  });
+
+  $("#note .notes:containsi('" + searchSplit + "')").each(function(e) {
+    $(this).removeClass('hidden out').addClass('in');
+    setTimeout(function() {
+        $('.in').removeClass('hiding');
+      }, 1);
+  });
+
+  // end amys code
+
+
+  // jimmys code
+
+  $("#courses .course").not(":containsi('" + searchSplit + "')").each(function(e)   {
+    $(this).addClass('hiding out').removeClass('in');
+    setTimeout(function() {
+        $('.out').addClass('hidden');
+      }, 600);
+  });
+
+  $("#courses .course:containsi('" + searchSplit + "')").each(function(e) {
+    $(this).removeClass('hidden out').addClass('in');
+    setTimeout(function() {
+        $('.in').removeClass('hiding');
+      }, 1);
+  });
+
+  // end jimmys code
 
 
     $("#list li").not(":containsi('" + searchSplit + "')").each(function(e)   {
@@ -54,6 +91,8 @@ $(document).ready(function() {
           $('.in').removeClass('hiding');
         }, 1);
     });
+
+
 
 
       var jobCount = $('#list .in').length;

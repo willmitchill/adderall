@@ -1,15 +1,16 @@
 <div id="course-background">
   <div id="course-box">
   <div class="find-title"><p><%= @university.name %></p></div>
+  <span class="search-box"><input class="type_text" id="search-text" placeholder="Search">
   <p>Select your course and view the goods!</p>
 
+  <div id="courses">
+    <% @courses.order(:name).each do |course| %>
+      <div class="course"><%= link_to "#{course.name}", university_course_path(@university, course) %></div><br>
 
-  <% @courses.each do |course| %>
-    <%= link_to "#{course.name}", university_course_path(@university, course) %><br>
-  <% end %>
+    <% end %>
+  </div>
 
-
-  <%= link_to "Back to all Universities", universities_path %>
 
 
       <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-1">Add a course</button>

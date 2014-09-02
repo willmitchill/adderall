@@ -1,6 +1,7 @@
 <div id="background">
   <div id="notes-qa-container">
     <div id="note-container">
+      <span class="search-box"><input class="type_text" id="search-text" placeholder="Search">
 
       <div id="course-name"><p><%= link_to @course.university.name, university_path(@course.university), method: :get %>, &nbsp<%= @course.name %> Tests</p></div>
       <div id="explain"><p>Share a test, assignment or note.</p></div>
@@ -55,7 +56,7 @@
       <div id="note">
 
         <% @notes.order(:upvote_count).reverse.each do |note| %>
-        <div id="notes">
+        <div class="notes">
           <h2><%= note.title %></h2>
 
           <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
