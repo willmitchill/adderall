@@ -61,6 +61,14 @@ $(document).ready(function() {
 
   });
 
+
+// hide flashcard until set created
+// $('.flashcard-form').hide(); //Initially form wil be hidden.
+
+//   $('#set-button').click(function(e) {
+//    $('.flashcard-form').show();//Form shows on button click
+
+//    });
 // flashcards
 
 var transitionDuration = $('.cards .card').css('transition-duration');
