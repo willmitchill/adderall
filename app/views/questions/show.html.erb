@@ -1,0 +1,25 @@
+
+<h1>Answer Questions</h1>
+
+<%= form_for @answer, url: url_for(controller: 'answers', action: 'create', course_id: @question.course.id, university_id: @question.course.university.id) do |f| %>
+  <%= f.text_field :answer, size: "60x3" %>
+  <%= hidden_field_tag "question_id", @question.id %>
+  <%= f.submit "Answer" %>
+<% end %>
+
+<% @question.answers.each do |answer| %>
+<h3>Answerer: <%= User.find(answer.user_id).firstname %></h3>
+<h4>Upvotes: <%= answer.upvote_count %></h4>
+<%= answer.answer %>
+<button type="AnswerUpvote" obj_id="<%= answer.id %>" class="answer-upvote">Upvote</button>
+<% end %>
+
+
+<h3>Answers:</h3>
+
+<% @question.answers.each do |answer| %>
+<h3>Answerer: <%= User.find(answer.user_id).firstname %></h3>
+<h4>Upvotes: <%= answer.upvote_count %></h4>
+<%= answer.answer %>
+<button type="AnswerUpvote" obj_id="<%= answer.id %>" class="answer-upvote">Upvote</button>
+<% end %>

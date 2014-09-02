@@ -5,6 +5,13 @@ class UpvotesController < ApplicationController
 
   def create
     @upvote = upvote_params[:type].constantize.new(:obj_id => upvote_params[:obj_id])
+    if upvote_params[:type] == "AnswerUpvote"
+      a = Answer.find(upvote_params[:obj_id].to_i)
+      a.upvote_count += 1
+    else
+      a = Note.find(upvote_params[:obj_id].to_i)
+      a.upvote_count += 1
+    end
     @upvote.user_id = current_user.id
     if @upvote.save
       render json: @upvote

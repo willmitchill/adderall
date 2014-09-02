@@ -1,19 +1,20 @@
 <div id="background">
   <div id="list-box">
 
-    <div id="find-title"><p><span class="glyphicon glyphicon-search"></span>&nbsp Find Your University</p></div>
+    <div class="find-title"><p><span class="glyphicon glyphicon-search"></span>&nbsp Find Your University</p></div>
 
     <div class="index">
-    <span class="search-box"><input class="type_text" id="search-text" placeholder="Search">
-    <span class="list-count"></span></span>
+      <span class="search-box"><input class="type_text" id="search-text" placeholder="Search">
+        <span class="list-count"></span></span>
 
-      <ul id="list">
-        <% @universities.order(:name).each do |university| %>
+        <ul id="list">
+          <% @universities.order(:name).each do |university| %>
           <li class="box effect7"><div class="each">
             <h4><%= link_to university.name, university_path(university) %></h4>
             <p><%= university.city %><p>
-          </div></li>
-        <% end %>
-      </ul>
-  </div>
-</div>
+            </div></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>

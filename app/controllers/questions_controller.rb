@@ -1,7 +1,9 @@
 class QuestionsController < ApplicationController
 
   def show
-    @user = User.find(user_id)
+    @question = Question.find(params[:id].to_i)
+    @answer = Answer.new
+
   end
 
 

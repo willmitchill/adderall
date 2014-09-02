@@ -5,20 +5,25 @@ Rails.application.routes.draw do
   resources :universities do
     resources :courses do
       resources :notes
+      resources :questions
     end
   end
 
-  resources :users, only: [:create, :new] 
+  resources :users, only: [:create, :new]
 
   resources :cardsets
   resources :flashcards
-  
-  
+
+
   get '/profile', to: 'users#show'
 
   resources :sessions
 
-  resources :questions
+  namespace :admin do
+    resources :users
+  end
+
+
 
   resources :answers
 
