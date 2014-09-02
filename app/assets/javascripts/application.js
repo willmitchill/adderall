@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -61,6 +61,14 @@ $(document).ready(function() {
 
   });
 
+
+// hide flashcard until set created
+// $('.flashcard-form').hide(); //Initially form wil be hidden.
+
+//   $('#set-button').click(function(e) {
+//    $('.flashcard-form').show();//Form shows on button click
+
+//    });
 // flashcards
 
 var transitionDuration = $('.cards .card').css('transition-duration');
@@ -69,7 +77,7 @@ var transitionDuration = $('.cards .card').css('transition-duration');
 $('.card').on('click', function() {
   var $cards = $(this).parent();
   $cards.addClass('animating');
-  $cards.find('.card').toggleClass('active');
+  $(this).toggleClass('active');
   var timeOut = setTimeout(
     function() {
       // Some event halway through animation

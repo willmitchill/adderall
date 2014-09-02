@@ -16,7 +16,7 @@ class FlashcardsController < ApplicationController
   end
 
   def create
-    @flashcard = current_user.flashcards.new(flashcard_params)
+    @flashcard = current_user.cardsets.flashcards.new(flashcard_params)
     if @flashcard.save
       redirect_to profile_path  notice: "#{@flashcard.title} was submitted successfully!"
     else

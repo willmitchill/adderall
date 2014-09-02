@@ -3,17 +3,19 @@
 <section class='col-sm-3' id="flashcard-form">
 <section id='cardset-form'>
 <h3> make a set of flashcard</h3>
+
 <%= form_for Cardset.new, :url => {:controller => 'cardsets', action: 'create'} do |f| %>
   <div>
     <%= f.label "name" %><br>
     <%= f.text_field :name %>
   </div>
-  <div>
+  <div id="set-button">
     <%= f.submit "Submit" %> 
   </div>
   <%end%>
 </section>
 
+<div class="flashcard-form">
 <h3> create a flashcard</h3>
 <%= form_for(Flashcard.new, url: url_for(controller: 'flashcards', action: 'create')) do |f| %>
   <div>
@@ -28,26 +30,30 @@
     <%= f.submit "Submit" %> 
   </div>
   <%end%>
+  </div>
 </section>
 
 
-<div class="cards col-sm-6" id="card-3456">
+<div class="col-sm-6" id="card-3456">
 
-  
+<!-- question card -->
+ 
   <% current_user.flashcards.each do |card|%>
+  <div class="cards">
+  <div class="card-1 card active"> 
 
-  <div class="card-1 card active">
   <%= card.title %>
-  <%end%>
+  </div><br>
 
-  </div>
+<!-- answer card -->
 
-    <% current_user.flashcards.each do |card|%>
-    <div class="card-2 card">
+ <div class="card-2 card">
   <%= card.content %>
+ 
+  </div>
+  </div>
   <%end%>
-  </div>
-  </div>
+  </div><br>
 
   <div class = "cardset">
   <h3> Here are your flashcard sets</h3>
