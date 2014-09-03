@@ -17,14 +17,18 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @flashcard = Flashcard.all
-
+    @flashcards = Flashcard.all
+    @flashcard = Flashcard.new
+    if params[:card_set_id]
+      @cardset = Cardset.find_by_id(params[:card_set_id].to_i)
+      @flashcard = Flashcard.new(:cardset_id => params[:card_set_id]) if @cardset
+    end
   end
 
   protected
 
   def user_params
-    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
+    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :card_set_id)
 
   end
 

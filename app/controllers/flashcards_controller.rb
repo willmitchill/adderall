@@ -16,9 +16,9 @@ class FlashcardsController < ApplicationController
   end
 
   def create
-    @flashcard = current_user.cardsets.flashcards.new(flashcard_params)
+    @flashcard = Flashcard.new(flashcard_params)
     if @flashcard.save
-      redirect_to profile_path  notice: "#{@flashcard.title} was submitted successfully!"
+      redirect_to profile_path(:card_set_id =>@flashcard.cardset_id)
     else
       redirect_to profile_path
     end
@@ -45,7 +45,7 @@ class FlashcardsController < ApplicationController
 
   def flashcard_params
     params.require(:flashcard).permit(
-      :content, :title
+      :content, :title, :cardset_id
     )
   end
 

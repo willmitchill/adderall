@@ -150,7 +150,7 @@ $cardColor: white;
   }
 
   .active {
-    z-index: $cardZ+1;
+    z-index: $cardZ;
     top: -$cardStagger;
     left: -$cardStagger;
   }
