@@ -13,7 +13,7 @@ $(document).ready(function() {
       },
       url: "/upvotes/",
       }).done(function() {
-        $( ".answer-upvote" ).remove();
+        $( this ).remove();
       });
     });
 
@@ -31,7 +31,7 @@ $(document).ready(function() {
         url: "/upvotes/",
         }).done(function() {
 
-          $( ".note-upvote" ).remove();
+          $( this ).remove();
         });
       });
 

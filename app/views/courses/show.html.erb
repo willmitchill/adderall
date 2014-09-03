@@ -1,11 +1,6 @@
 <div id="background">
   <div id="notes-qa-container">
     <div id="note-container">
-      <span class="search-box"><input class="type_text" id="search-text" placeholder="Search">
-
-      <div id="course-name"><p><%= link_to @course.university.name, university_path(@course.university), method: :get %>, &nbsp<%= @course.name %> Tests</p></div>
-      <div id="explain"><p>Share a test, assignment or note.</p></div>
-
 
       <script type="text/javascript">
       $(document).ready(function() {
@@ -24,37 +19,43 @@
       </script>
 
 
-      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-1">Upload</button>
-      <div class="modal" id="modal-1" tabindex="1" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button id="close" type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Share a Test</h4>
-            </div>
-            <div class="modal-body">
-              <%= form_for @note, url: url_for(controller: 'notes', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
-              <p>
-                <label>Upload a Test or Assignment!</label>
-                <%= f.file_field :note_file %>
-                <div>
-                  <%= f.label "Title" %><br>
-                  <%= f.text_field "title" %>
+
+
+      <div id="note">
+        <div id="notebox-info">
+          <div id="course-name"><p><font color="#5986C6"><%= link_to @course.university.name, university_path(@course.university), method: :get %>, &nbsp<%= @course.name %> Tests</font></p></div>
+          <span class="search-box"><input class="type_text" id="search-text" placeholder="Search">
+          <div id="explain"><p>Share a test, assignment or note.</p></div>
+
+          <button type="button" class="btn btn-default" id="upload" data-toggle="modal" data-target="#modal-1">Upload</button>
+          <div class="modal" id="modal-1" tabindex="1" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button id="close" type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Share a Test</h4>
                 </div>
-                <div>
-                  <%= f.submit "Submit" %>
+                <div class="modal-body">
+                  <%= form_for @note, url: url_for(controller: 'notes', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
+                  <p>
+                    <label>Upload a Test or Assignment!</label>
+                    <%= f.file_field :note_file %>
+                    <div>
+                      <%= f.label "Title" %><br>
+                      <%= f.text_field "title" %>
+                    </div>
+                    <div>
+                      <%= f.submit "Submit" %>
+                    </div>
+                  </p>
+                  <% end %>
                 </div>
-              </p>
-              <% end %>
-            </div>
-            <div class="modal-footer">
+                <div class="modal-footer">
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div id="note">
-
         <% @notes.order(:upvote_count).reverse.each do |note| %>
         <div class="notes">
           <h2><%= note.title %></h2>
@@ -84,9 +85,9 @@
 
         <% @course.questions.each do |question| %>
         <div id="question-container">
-          <h3>Author: <%= User.find(question.user_id).firstname %></h3>
-          <h4><%= question.question %></h4>
+          <h3>Question: &nbsp<%= question.question %></h3>
           <p><%= question.answers.count%>&nbsp <%= link_to "Answers", university_course_question_path(@course.university, @course, question), method: :get %></p>
+          <p>Author: <%= User.find(question.user_id).firstname %></p>
           <br>
 
 

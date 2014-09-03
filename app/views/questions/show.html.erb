@@ -7,14 +7,6 @@
   <%= f.submit "Answer" %>
 <% end %>
 
-<% @question.answers.each do |answer| %>
-<h3>Answerer: <%= User.find(answer.user_id).firstname %></h3>
-<h4>Upvotes: <%= answer.upvote_count %></h4>
-<%= answer.answer %>
-<button type="AnswerUpvote" obj_id="<%= answer.id %>" class="answer-upvote">Upvote</button>
-<% end %>
-
-
 <h3>Answers:</h3>
 
 <% @question.answers.each do |answer| %>
