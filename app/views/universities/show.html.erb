@@ -19,15 +19,15 @@
               <%= form_for @course, url: url_for(controller: 'courses', action: 'create', university_id: @university.id) do |f| %>
                 <div>
                   <%= f.label "name" %><br>
-                  <%= f.text_field "name" %>
+                  <%= f.text_field "name", :required => true %>
                 </div>
                 <div>
                   <%= f.label "course number" %><br>
-                  <%= f.number_field "course_number" %>
+                  <%= f.number_field "course_number", :required => true %>
                 </div>
                 <div>
                   <%= f.label "department" %><br>
-                  <%= f.text_field "department" %>
+                  <%= f.text_field "department", :required => true %>
                 </div>
                 <div>
                   <%= f.submit "Submit" %>
