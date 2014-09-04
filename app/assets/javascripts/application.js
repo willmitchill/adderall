@@ -91,4 +91,12 @@ $('.card').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend M
   }
 );
 
+// hide set button
+  $('#hide-button').click(function() {
+     $(this).hide();
+     $(".hidden-form").addClass("opaque-form-1");
+     $("#no-display").removeAttr('id');
+    $(".hidden-form").removeClass("hidden-form");
+  });
+
 });
