@@ -22,11 +22,9 @@
 
       <div id="note">
         <div id="notebox-info">
-          <div id="course-name"><p><font color="#4fd1d4"><%= link_to @course.university.name, university_path(@course.university), method: :get %>, &nbsp<%= @course.name %></font></p></div>
-          <span class="search-box"><input class="type_text" id="search-text" placeholder="Search">
-          <div id="explain"><p>Share a test, assignment or note.</p></div>
+          <div id="course-name"><p><font color="#4fd1d4"><%= link_to @course.university.name, university_path(@course.university), method: :get %>, &nbsp<%= @course.name %></font></p></div><div id="explain"><p>Share a test, assignment or note.</p></div> 
 
-          <button type="button" class="btn btn-default" id="upload" data-toggle="modal" data-target="#modal-1">Upload</button>
+          <div id="pad-this"><span class="search-box"><input class="type_text search-courses" id="search-text" placeholder="Search"><button type="button" class="btn btn-default" id="upload" data-toggle="modal" data-target="#modal-1">Upload</button></div>
           <div class="modal" id="modal-1" tabindex="1" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -59,12 +57,11 @@
         <div class="notes">
           <h2><%= note.title %></h2>
           <% if note.user_id == current_user.id %>
-
-            <%= link_to university_course_note_path(note, note.course.id, note.course.university.id), :method => :destroy %>
+            <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), university_course_note_path(note, note.course.id, note.course.university.id), :method => :destroy, :class => "delete-button" %>
           <% end %>
           <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
           <% if note.note_upvotes.where(user_id: current_user.id) == [] %>
-            <button type="NoteUpvote" obj_id="<%= note.id %>" class="note-upvote"><span class="glyphicon glyphicon-heart"></span></button>
+            <button type="NoteUpvote" obj_id="<%= note.id %>" class="note-upvote heart"><span class="glyphicon glyphicon-heart"></span></button>
           <span><%= note.upvote_count %>&nbsp Likes</span>
         </div>
         <% end %>

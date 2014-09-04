@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root :to => "landing#index"
+
   resources :landing, only: [:show, :index]
 
   resources :universities do

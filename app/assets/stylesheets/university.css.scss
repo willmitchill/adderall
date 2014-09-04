@@ -51,7 +51,7 @@
   .find-title {
 
     span {
-      text-shadow: 2px 2px #6ba3e0;
+      text-shadow: 2px 2px #4FD1D4;
     }
     p {
       margin: 0 0 20px 20%;
@@ -64,7 +64,8 @@
   .type_text {
     margin: 0 10px 30px 240px;
     border-style: none;
-    padding: 5px;
+    padding: 5px 10px;
+    border: 1px solid rgba(23, 23, 23, 0.43);
     border-radius: 5px;
   }
 
@@ -81,4 +82,52 @@
 
 #course {
   font-size: 25px;
+}
+.course-list {
+
+}
+#select {
+  display: inline;
+  margin: 0px 3% 19% 30%;
+}
+
+#add-course-button {
+  display:inline;
+}
+
+#list-box .type_text {
+  margin: 25px 10px 30px 251px;
+}
+
+.modal-body #title {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.modal-body input[type="submit"] {
+  font-size: 1.5em;
+  background-color: #393937;
+  padding: 8px 15px;
+  margin: 10px;
+  color: #eef3ee;
+  border-radius: 13px;
+  border: 2px solid #4fd1d4;
+
+
+}
+
+.modal-header {
+  background-image: url("http://i1264.photobucket.com/albums/jj493/wmitchel1/r7Z09Ht_zps18931603.gif");
+
+}
+
+.modal-footer {
+  background-image: url("http://i1264.photobucket.com/albums/jj493/wmitchel1/r7Z09Ht_zps18931603.gif");
+
+}
+
+.modal-title {
+  font-size: 2em;
+  font-weight: bolder;
+
 }

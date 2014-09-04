@@ -27,12 +27,12 @@ class NotesController < ApplicationController
   def edit
   end
 
-  def delete
+  def destroy
     binding.pry
     @note = Note.find(params[:id])
     @note.destroy
     @note.save
-    redirect_to university_courses_path
+    redirect_to university_course_path
   end
 
   def show

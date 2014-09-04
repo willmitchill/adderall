@@ -19,6 +19,21 @@ a {
   }
 }
 
+.fancypdf {
+  border: 1px solid #3a3a3a;
+  border-radius: 2px;
+
+  width:120px;
+  height: 170px;
+  background: rgba(255, 255, 255, 0.9);
+  &:hover {
+    -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+
+  }
+}
+
 #question-answer-container {
   border: 8px solid #4fd1d4;
   border-radius:4px;
@@ -32,43 +47,37 @@ a {
 #note-container {
   padding: 10px 40px 10px 90px;
 
-  img {
-    border: 1px solid #3a3a3a;
-    border-radius: 2px;
-
-    width:120px;
-    height: 170px;
-    background: rgba(255, 255, 255, 0.9);
+  #upload {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    margin-top: -95px;
   }
-  img:hover {
-    -webkit-transform: translateY(-5px);
-  -ms-transform: translateY(-5px);
-  transform: translateY(-5px);
 
+  .search-courses {
+    margin: 10px 0;
   }
+
     span {
       font-size: 15px;
     }
 
-    button {
+    #pad-this {
+      padding: 10px 15px 0 0;
+    }
+
+    .heart {
       display: inline;
       border: none;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0);
       outline: none;
-      padding: 8px 15px;
-      margin: 10px;
       color: #4fde4a;
-
-
-
       span {
         color:red;
         font-size: 25px;
         margin: 3px;
         padding-top:3px;
-
-
       }
 
     }
@@ -106,4 +115,13 @@ font-size: 30px;
 
 #notebox-info {
 
+}
+
+
+.delete-button {
+  img {
+    height:15px;
+    width:15px;
+    float: right;
+  }
 }

@@ -1,18 +1,20 @@
-<div id="course-background">
-  <div id="course-box">
-  <div class="find-title"><p><%= @university.name %></p></div>
-  <span class="search-box"><input class="type_text" id="search-text" placeholder="Search">
-  <p>Select your course and view the goods!</p>
-  <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-1">Add a course</button>
+<div id="background">
+  <div id="list-box">
+    <div class="find-title"><p><span class="glyphicon glyphicon-book"> </span> &nbsp <%= @university.name %></p></div>
+
+
+  <p id="select">Select your course and view the goods!</p>
+  <button type="button" class="btn btn-default" id="add-course-button" data-toggle="modal" data-target="#modal-1">Add a course</button>
+
   <div class="modal" id="modal-1" tabindex="1" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button id="close" type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Share a Test</h4>
+          <h4 class="modal-title">Add a Course</h4>
           </div>
             <div class="modal-body">
-              <h2>Submit a Course!</h2>
+              <span id="title"> (Example: Bio 100)  </span>
 
               <%= form_for @course, url: url_for(controller: 'courses', action: 'create', university_id: @university.id) do |f| %>
                 <div>
@@ -38,12 +40,18 @@
   </div>
 </div>
 
-  <div id="courses">
-    <% @courses.order(:name).each do |course| %>
-      <div class="course"><%= link_to "#{course.name}", university_course_path(@university, course) %></div><br>
+  <span class="search-box"><input class="type_text" id="search-text" placeholder="Search">
 
+
+    <ul id="list" class="course-list">
+    <% @courses.order(:name).each do |course| %>
+    <li class="box effect7"><div class="each">
+      <div class="course"><h4><%= link_to "#{course.name}", university_course_path(@university, course) %></h4>
+      <p><%= course.department %><p></div><br>
+    </div></li>
     <% end %>
-  </div>
+    </ul>
+
 
 
   </div>

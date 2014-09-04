@@ -1,16 +1,19 @@
+<div id="answer-page">
+  <div id="answer-container">
+    <h1>Question: &nbsp<%= @question.question %></h1>
 
-<h1>Answer Questions</h1>
+    <%= form_for @answer, url: url_for(controller: 'answers', action: 'create', course_id: @question.course.id, university_id: @question.course.university.id) do |f| %>
+      <%= f.text_field :answer, size: "80x80" %>
+      <%= hidden_field_tag "question_id", @question.id %>
+      <%= f.submit "Answer" %>
+    <% end %>
 
-<%= form_for @answer, url: url_for(controller: 'answers', action: 'create', course_id: @question.course.id, university_id: @question.course.university.id) do |f| %>
-  <%= f.text_field :answer, size: "60x3" %>
-  <%= hidden_field_tag "question_id", @question.id %>
-  <%= f.submit "Answer" %>
-<% end %>
+    <h3>Answers:</h3>
 
-<h3>Answers:</h3>
-
-<% @question.answers.each do |answer| %>
-<h3><%= User.find(answer.user_id).firstname %>: &nbsp<%= answer.answer %></h3>
-<h4>Upvotes: <%= answer.upvote_count %></h4>
-<button type="AnswerUpvote" obj_id="<%= answer.id %>" class="answer-upvote">Upvote</button>
-<% end %>
+    <% @question.answers.each do |answer| %>
+    <h3><%= User.find(answer.user_id).firstname %>: &nbsp<%= answer.answer %></h3>
+    <h4>Upvotes: <%= answer.upvote_count %></h4>
+    <button type="AnswerUpvote" obj_id="<%= answer.id %>" class="note-upvote heart"><span class="glyphicon glyphicon-heart"></span></button>
+    <% end %>
+  </div>
+</div>

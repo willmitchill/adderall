@@ -1,3 +1,17 @@
 // Place all the styles related to the question controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#answer-page {
+  background-image: url("http://i1264.photobucket.com/albums/jj493/wmitchel1/r7Z09Ht_zps18931603.gif");
+  min-height: 1000px;
+}
+
+#answer-container {
+  margin-left: 18%;
+  background: rgba(255, 255, 255, 0.93);
+  width: 800px;
+  padding: 30px;
+  min-height: 1000px;
+  border: 8px solid #4fd1d4;
+}

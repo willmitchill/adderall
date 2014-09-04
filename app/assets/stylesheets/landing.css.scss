@@ -7,30 +7,32 @@
   margin-bottom: 0;
   margin: 0;
   width: 101.4%;
-  padding: 30px;
+  padding: 60px 30px 30px 30px;
   color: inherit;
-  height:480px;
+  height:540px;
 
 
   #signup-container {
     margin:1px 90px 0 0;
-    background-color:rgba(255, 255, 255, 0.67);
+    background-color:rgba(255, 255, 255, 0.87);
     width:40%;
     float: right;
     padding: 3px 30px 30px 175px;
 
     input[type="submit"] {
       font-size: 1.5em;
-      margin: 10px 5px;
-      border-style: none;
-      background: #34b0ea;
-      padding: 4px 9px;
+      background-color: #393937;
+      padding: 8px 15px;
+      margin: 10px;
+      color: #eef3ee;
+      border-radius: 13px;
+      border: 2px solid #4fd1d4;
     }
   }
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.80);
+  background: rgba(255, 255, 255, 0.87);
   height: 330px;
   width:40%;
   height:400px;
@@ -93,7 +95,7 @@ section .inner {
 }
 
 section.block {
-	background-color: #2a2a2a;
+	background-color: #393937;
   height: 400px;
   width: 101.4%;
   padding-top: 20px;
@@ -109,7 +111,7 @@ section.block-two {
 	display: block;
   width: 31.1%;
   height: 350px;
-  background: rgb(63, 123, 164);
+  background: #ecf1f3;
   float: left;
   margin: 1%;
 }
