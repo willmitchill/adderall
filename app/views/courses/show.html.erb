@@ -1,4 +1,4 @@
-<div id="background">
+
   <div id="notes-qa-container">
     <div id="note-container">
 
@@ -20,10 +20,9 @@
 
 
 
-
       <div id="note">
         <div id="notebox-info">
-          <div id="course-name"><p><font color="#5986C6"><%= link_to @course.university.name, university_path(@course.university), method: :get %>, &nbsp<%= @course.name %></font></p></div>
+          <div id="course-name"><p><font color="#4fd1d4"><%= link_to @course.university.name, university_path(@course.university), method: :get %>, &nbsp<%= @course.name %></font></p></div>
           <span class="search-box"><input class="type_text" id="search-text" placeholder="Search">
           <div id="explain"><p>Share a test, assignment or note.</p></div>
 
@@ -59,7 +58,10 @@
         <% @notes.order(:upvote_count).reverse.each do |note| %>
         <div class="notes">
           <h2><%= note.title %></h2>
+          <% if note.user_id == current_user.id %>
 
+            <%= link_to university_course_note_path(note, note.course.id, note.course.university.id), :method => :destroy %>
+          <% end %>
           <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
           <% if note.note_upvotes.where(user_id: current_user.id) == [] %>
             <button type="NoteUpvote" obj_id="<%= note.id %>" class="note-upvote"><span class="glyphicon glyphicon-heart"></span></button>
@@ -97,6 +99,9 @@
       </div>
 
 
+
       <% if current_user.admin == true %>
       <%= link_to "Admin Table", admin_users_path %>
       <% end %>
+    </div>
+  </div>

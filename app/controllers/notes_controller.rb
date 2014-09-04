@@ -17,7 +17,6 @@ class NotesController < ApplicationController
     @note.course_id = params[:course_id]
 
     if @note.save
-
       redirect_to university_course_path(@note.course.university.id, @note.course.id, notice: "Note submitted successfully")
     else
       redirect_to university_course_path(@note.course.university.id, @note.course.id, notice: "Note not submitted successfully")
@@ -26,6 +25,14 @@ class NotesController < ApplicationController
   end
 
   def edit
+  end
+
+  def delete
+    binding.pry
+    @note = Note.find(params[:id])
+    @note.destroy
+    @note.save
+    redirect_to university_courses_path
   end
 
   def show

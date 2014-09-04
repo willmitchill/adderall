@@ -13,15 +13,15 @@ class AnswersController < ApplicationController
 
       redirect_to university_course_path(params[:university_id], params[:course_id],notice: "Answer submitted successfully!")
 
-    
+
 
     end
   end
 
   def destroy
-    @upvote = Upvote.find(params[:id])
-    @upvote.destroy
-    redirect_to university_course_notes_path
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+    redirect_to university_course_question_path
   end
 
   protected
