@@ -5,8 +5,7 @@ class CardsetsController < ApplicationController
   def create
     @cardset = current_user.cardsets.new(cardset_params)
     if @cardset.save
-      session[:cardset_id] = @cardset.id
-      redirect_to profile_path  notice: "#{@cardset.name} was created successfully!"
+      redirect_to profile_path(:card_set_id =>@cardset.id)
     else
       redirect_to profile_path
     end

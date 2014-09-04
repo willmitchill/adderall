@@ -106,6 +106,7 @@ $cardColor: white;
 
 
 .cards {
+
   z-index: $cardZ;
   width: $cardWidth;
   height: $cardHeight;
@@ -115,15 +116,19 @@ $cardColor: white;
   top: $cardStagger;
   left: $cardStagger;
   cursor: pointer;
+  word-wrap:break-word;
+  padding:10px;
+
   .card {
       position: absolute;
-      background: $cardColor;
+      background-image: url('https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/v/t34.0-12/10578844_10152797669608619_532078760_n.jpg?oh=7b62ad6e335333d3af5a9505e035c0bc&oe=540956B8&__gda__=1409918092_7a5f6531d0085b704db0e2295ced9822');
       height: 100%;
       width: 100%;
       float:left;
-      font-size: 2em;
+      font-size: 1.75em;
       font-family: 'Cutive', serif;
-      line-height: $cardHeight;
+      padding: 56px;
+      line-height: 1.3;
       text-align: center;
       /* prevent flicker */
       -webkit-transform: translate3d(0, 0, 0);
@@ -154,25 +159,93 @@ $cardColor: white;
   }
 
   .active {
-    z-index: $cardZ+1;
+    z-index: $cardZ;
     top: -$cardStagger;
     left: -$cardStagger;
   }
 
 }
+.dashboard{
+  background: url("http://i1264.photobucket.com/albums/jj493/wmitchel1/r7Z09Ht_zps18931603.gif") center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+  height: 100%;
+
+}
+.dashboard input{
+  border: solid 1px;
+}
 
 #flashcard-form {
   float: left!important;
   display: inline;
-  color: red;
+}
+.opaque-form-1{
+  background: rgba(255, 255, 255, 0.93);
+  padding: 20px;
+  border: 8px solid #4fd1d4;
+}
+#opaque-form{
+  margin-top: 40px;
+  background: rgba(255, 255, 255, 0.93);
+  padding: 20px;
+  border: 8px solid #4fd1d4;
+  margin-bottom: 20px;
+}
+#opaque-sets{
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.93);
+  padding: 20px;
+  border: 8px solid #4fd1d4;
+
+  }
+.button{
+  margin-top: 10px;
+}
+
+
+#body.cardset {
+
+  float: right;
+  margin-right: 50px;
+  margin-top: 10px;
+
+}
+#flashcard-title{
+  text-align: center;
+  font-size: 30px;
 
 
 }
+#cardset-title{
+  font-size: 20px;
+  text-align: center!important;
 
-#cardset-form{
-  display: inline;
+}
+#body.cardset{
+  float: right;
+}
+#no-cards{
+  text-align: center;
+}
+#each-cardset{
+  display: block;
+}
+#no-display{
+  display:none;
+}
 
-
+#hide-button{
+  margin-left:90px;
+  font-size: 1.5em;
+background-color: #393937;
+padding: 8px 15px;
+margin: 10px;
+color: #eef3ee;
+border-radius: 13px;
+border: 2px solid #4fd1d4;
 }
 
 

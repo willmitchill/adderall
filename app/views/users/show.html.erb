@@ -1,65 +1,105 @@
 <body class="dashboard">
-<h2> Dashboard </h2>
+<h2 id="flashcard-title">Flashcards</h2>
 <section class='col-sm-3' id="flashcard-form">
-<section id='cardset-form'>
+
+<section>
+<%if !@cardset %>
+
+<div id="opaque-form">
 <h3> make a set of flashcard</h3>
 
-<%= form_for Cardset.new, :url => {:controller => 'cardsets', action: 'create'} do |f| %>
-  <div>
-    <%= f.label "name" %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div id="set-button">
-    <%= f.submit "Submit" %> 
-  </div>
+  <%= form_for Cardset.new, :url => {:controller => 'cardsets', action: 'create'} do |f| %>
+    <div>
+      <%= f.label "name" %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="button">
+      <%= f.submit "Create" %> 
+    </div>
+    </div>
+    <%end%>
   <%end%>
 </section>
 
-<div class="flashcard-form">
-<h3> create a flashcard</h3>
-<%= form_for(Flashcard.new, url: url_for(controller: 'flashcards', action: 'create')) do |f| %>
-  <div>
-    <%= f.label "title" %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label "content" %><br>
-    <%= f.text_field :content %>
-  </div>
-  <div>
-    <%= f.submit "Submit" %> 
-  </div>
+<% if @cardset %>
+
+<div class="flashcard-form" id="opaque-form">
+<h3> Add a flashcard</h3>
+  <%= form_for(@flashcard, url: url_for(controller: 'flashcards', action: 'create')) do |f| %>
+   <input name= "flashcard[cardset_id]" type="hidden" value=<%=@flashcard.cardset_id%> />
+    <div>
+      <%= f.label "Question" %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label "Answer" %><br>
+      <%= f.text_field :content %>
+    </div>
+    <div class='button'>
+      <%= f.submit "Create" %> 
+    </div>
   <%end%>
   </div>
+
+<!-- hide this show when button clicked
+ -->
+  <button id='hide-button' type="button">make a set</button>
+  <div class="hidden-form">
+  
+    <div id='no-display'>
+    <h3> Make a new set</h3>
+      <%= form_for Cardset.new, :url => {:controller => 'cardsets', action: 'create'} do |f| %>
+      <div>
+        <%= f.label "name" %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="button">
+        <%= f.submit "Create" %> 
+      </div>
+    <%end%>
+    </div>
+  <%end%>
 </section>
 
 
 <div class="col-sm-6" id="card-3456">
 
 <!-- question card -->
- 
-  <% current_user.flashcards.each do |card|%>
-  <div class="cards">
-  <div class="card-1 card active"> 
+ <%if @cardset %>
+   <div id='cardset-title'><%=@cardset.name %>
+   </div>
+    <% @cardset.flashcards.each do |card| %>
+    <div class="cards">
+    <div class="card-1 card active"> 
 
-  <%= card.title %>
-  </div><br>
+    <%= card.title %>
+    </div><br>
 
-<!-- answer card -->
+  <!-- answer card -->
 
- <div class="card-2 card">
-  <%= card.content %>
- 
-  </div>
-  </div>
+   <div class="card-2 card">
+    <%= card.content %>
+   
+    </div>
+    </div>
   <%end%>
   </div><br>
+  <%else%>
 
-  <div class = "cardset">
+   <h3 id='no-cards'> No cards here yet!</h3>
+    </div><br>
+
+  <%end%>
+
+  <div class = "cardset col-sm-3" >
+  <div id="opaque-sets">
   <h3> Here are your flashcard sets</h3>
   <% current_user.cardsets.each do |set| %>
-  <%= set.name %>
+    <div id="each-cardset"><%= link_to "#{set.name}", profile_path(:card_set_id =>set.id)%>
   <%end%>
+  </div>
+  </div>
+
   </div>
   
 

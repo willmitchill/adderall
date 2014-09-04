@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902030529) do
+ActiveRecord::Schema.define(version: 20140902191128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20140902030529) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "set_id"
+    t.integer  "cardset_id"
   end
 
+  add_index "flashcards", ["cardset_id"], name: "index_flashcards_on_cardset_id", using: :btree
   add_index "flashcards", ["course_id"], name: "index_flashcards_on_course_id", using: :btree
-  add_index "flashcards", ["set_id"], name: "index_flashcards_on_set_id", using: :btree
   add_index "flashcards", ["user_id"], name: "index_flashcards_on_user_id", using: :btree
 
   create_table "notes", force: true do |t|
