@@ -138,4 +138,9 @@ $('.card').on('transitionend webkitTransitionEnd oTransitionEnd otransitionend M
     $(".hidden-form").removeClass("hidden-form");
   });
 
+  // delete button
+  $('.delete-button').on('click', function(e){
+    $(this).parent('.card').off('click');
+  });
+
 });

@@ -2,8 +2,9 @@
   <div id="answer-container">
     <h1>Question: &nbsp<%= @question.question %></h1>
 
+
     <%= form_for @answer, url: url_for(controller: 'answers', action: 'create', course_id: @question.course.id, university_id: @question.course.university.id, question_id: @question.id) do |f| %>
-      <%= f.text_area :answer, size: "80x80", id: "answer-field" %>
+      <%= f.text_area :answer, size: "80x80", id: "answer-field", :required => true %>
       <%= hidden_field_tag "question_id", @question.id %>
       <%= f.submit "Answer", class: "answer-submit" %>
     <% end %>

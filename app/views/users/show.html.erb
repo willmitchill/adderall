@@ -11,7 +11,7 @@
   <%= form_for Cardset.new, :url => {:controller => 'cardsets', action: 'create'} do |f| %>
     <div>
       <%= f.label "name" %><br>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :required => true %>
     </div>
     <div class="button">
       <%= f.submit "Create" %> 
@@ -24,16 +24,17 @@
 <% if @cardset %>
 
 <div class="flashcard-form" id="opaque-form">
+
 <h3> Add a flashcard</h3>
   <%= form_for(@flashcard, url: url_for(controller: 'flashcards', action: 'create')) do |f| %>
    <input name= "flashcard[cardset_id]" type="hidden" value=<%=@flashcard.cardset_id%> />
     <div>
       <%= f.label "Question" %><br>
-      <%= f.text_field :title %>
+      <%= f.text_area :title, size: "27x4", :required => true %>
     </div>
     <div>
       <%= f.label "Answer" %><br>
-      <%= f.text_field :content %>
+      <%= f.text_area :content, size: "27x2", :required => true %>
     </div>
     <div class='button'>
       <%= f.submit "Create" %> 
@@ -51,7 +52,7 @@
       <%= form_for Cardset.new, :url => {:controller => 'cardsets', action: 'create'} do |f| %>
       <div>
         <%= f.label "name" %><br>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, :required => true%>
       </div>
       <div class="button">
         <%= f.submit "Create" %> 
@@ -73,13 +74,13 @@
     <div class="card-1 card active"> 
 
     <%= card.title %>
+    <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), flashcard_path(card.id), method: :delete, :class => "delete-button" %>
     </div><br>
 
   <!-- answer card -->
 
    <div class="card-2 card">
     <%= card.content %>
-   
     </div>
     </div>
   <%end%>
@@ -96,7 +97,8 @@
   <h3> Here are your flashcard sets</h3>
   <% current_user.cardsets.each do |set| %>
     <div id="each-cardset"><%= link_to "#{set.name}", profile_path(:card_set_id =>set.id)%>
-  <%end%>
+    <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), cardset_path(set.id), method: :delete, :class => "delete-button-1" %>
+    <%end%>
   </div>
   </div>
 

@@ -20,7 +20,7 @@ class FlashcardsController < ApplicationController
     if @flashcard.save
       redirect_to profile_path(:card_set_id =>@flashcard.cardset_id)
     else
-      redirect_to profile_path
+      redirect_to profile_path(:card_set_id =>@flashcard.cardset_id)
     end
 
   end
@@ -33,13 +33,13 @@ class FlashcardsController < ApplicationController
       render :edit
     end
   end
-
+  
 
 
   def destroy
     @flashcard = Flashcard.find(params[:id])
     @flashcard.destroy
-    redirect_to movies_path
+    redirect_to profile_path(:card_set_id =>@flashcard.cardset_id)
   end
   protected
 

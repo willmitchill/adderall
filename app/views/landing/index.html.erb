@@ -14,26 +14,29 @@
       <div id="signup-background">
         <h3>Sign up for free!</h3>
         <%= form_for :user, url: url_for(controller: 'users', action: 'create') do |f| %>
-
+        <div>
+          <%= f.label "username", "Username" %><br>
+          <%= f.text_field "username", :required => true%>
+        </div>
         <div>
           <%= f.label "firstname", "First Name" %><br>
-          <%= f.text_field "firstname" %>
+          <%= f.text_field "firstname", :required => true %>
         </div>
         <div>
           <%= f.label "lastname", "Last Name" %><br>
-          <%= f.text_field "lastname" %>
+          <%= f.text_field "lastname", :required => true %>
         </div>
         <div>
           <%= f.label "email", "Email" %><br>
-          <%= f.text_field "email" %>
+          <%= f.text_field "email", :required => true %>
         </div>
         <div>
           <%= f.label "password" %><br>
-          <%= f.password_field "password" %>
+          <%= f.password_field "password", :required => true %>
         </div>
         <div>
           <%= f.label "password_confirmation" %><br>
-          <%= f.password_field "password_confirmation" %>
+          <%= f.password_field "password_confirmation" , :required => true%>
         </div>
         <div><%= f.submit "Submit" %></div>
         <% end %>

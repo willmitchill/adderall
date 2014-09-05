@@ -2,11 +2,11 @@
 <%= form_tag sessions_path(current_user) do %>
   <span>
     <%= label_tag "email" %><br/>
-    <%= text_field_tag "email"  %>
+    <%= text_field_tag "email", "",:required => true  %>
   </span>
   <span>
-    <%= label_tag :password %><br/>
-    <%= password_field_tag :password  %>
+    <%= label_tag "password"%><br/>
+    <%= password_field_tag "password","", :required => true  %>
   </span>
   <span><%= submit_tag "Log In" %></span>
 <% end %>

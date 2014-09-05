@@ -6,8 +6,10 @@ class User < ActiveRecord::Base
   has_many :cardsets
   has_secure_password
   validates :email, presence: true
-  validates :password_digest, presence: true
+  validates :password, presence: true
+  validates :password, length: {minimum: 6, maximum: 15}
   validates :firstname, presence: true
   validates :lastname, presence: true
+  validates :username, presence: true
   # attr_accessor :password, :password_confirmation
 end

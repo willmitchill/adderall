@@ -17,7 +17,9 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear[:user_id]
+
     redirect_to landing_index_path, notice: "Adios!"
+
   end
 
   def failure

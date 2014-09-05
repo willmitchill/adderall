@@ -236,6 +236,7 @@ $cardColor: white;
 }
 #each-cardset{
   display: block;
+  font-size: 20px;
 }
 #no-display{
   display:none;
@@ -250,6 +251,7 @@ $cardColor: white;
   color: #eef3ee;
   border-radius: 13px;
   border: 2px solid #4fd1d4;
+//
 }
 
 
@@ -312,4 +314,23 @@ border: 2px solid #4fd1d4;
   color: red;
   border:0;
   background: rgba(255, 255, 255, 0);
+}
+
+
+.delete-button{
+  top: 5px;
+  right: 5px;
+  position: absolute;
+}
+
+.delete-button-1 {
+  img {
+    height: 16px;
+    width: 16px;
+  }
+}
+
+#login {
+  float:right;
+  display:inline;
 }

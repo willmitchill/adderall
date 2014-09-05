@@ -7,7 +7,7 @@ class CardsetsController < ApplicationController
     if @cardset.save
       redirect_to profile_path(:card_set_id =>@cardset.id)
     else
-      redirect_to profile_path
+      redirect_to profile_path(:card_set_id =>@cardset.id)
     end
   end
 
@@ -18,6 +18,9 @@ class CardsetsController < ApplicationController
   end
 
   def destroy
+    @cardset = Cardset.find(params[:id])
+    @cardset.destroy
+    redirect_to profile_path
   end
 
   def index

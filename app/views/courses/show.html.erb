@@ -40,7 +40,7 @@
                     <%= f.file_field :note_file %>
                     <div>
                       <%= f.label "Title" %><br>
-                      <%= f.text_field "title" %>
+                      <%= f.text_field "title", :required => true %>
                     </div>
                     <div>
                       <%= f.submit "Submit" %>
