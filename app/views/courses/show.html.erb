@@ -37,11 +37,10 @@
                   <%= form_for @note, url: url_for(controller: 'notes', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
                   <p>
                     <label>Upload a Test or Assignment!</label>
-                    <p>( For the time being must be a PDF: <a href="http://www.freepdfconvert.com/" target="_blank">Converter Here</a> )<p>
+                    <p>( For the time being uploads must be a PDF: <a href="http://www.freepdfconvert.com/" target="_blank">Converter Here</a> )<p>
                     <%= f.file_field :note_file %>
                     <div>
-                      <%= f.label "Title" %><br>
-                      <%= f.text_field "title", :required => true %>
+                      <%= f.text_field "title", :placeholder => "Title", :required => true %>
                     </div>
                     <div>
                       <%= f.submit "Submit" %>

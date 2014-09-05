@@ -14,7 +14,7 @@
       <%= f.text_field :name, :required => true %>
     </div>
     <div class="button">
-      <%= f.submit "Create" %> 
+      <%= f.submit "Create" %>
     </div>
     </div>
     <%end%>
@@ -37,7 +37,7 @@
       <%= f.text_area :content, size: "27x2", :required => true %>
     </div>
     <div class='button'>
-      <%= f.submit "Create" %> 
+      <%= f.submit "Create" %>
     </div>
   <%end%>
   </div>
@@ -46,7 +46,7 @@
  -->
   <button id='hide-button' type="button">make a set</button>
   <div class="hidden-form">
-  
+
     <div id='no-display'>
     <h3> Make a new set</h3>
       <%= form_for Cardset.new, :url => {:controller => 'cardsets', action: 'create'} do |f| %>
@@ -55,7 +55,7 @@
         <%= f.text_field :name, :required => true%>
       </div>
       <div class="button">
-        <%= f.submit "Create" %> 
+        <%= f.submit "Create" %>
       </div>
     <%end%>
     </div>
@@ -66,12 +66,12 @@
 <div class="col-sm-6" id="card-3456">
 
 <!-- question card -->
- <%if @cardset %>
+ <% if @cardset %>
    <div id='cardset-title'><%=@cardset.name %>
    </div>
     <% @cardset.flashcards.each do |card| %>
     <div class="cards">
-    <div class="card-1 card active"> 
+    <div class="card-1 card active">
 
     <%= card.title %>
     <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), flashcard_path(card.id), method: :delete, :class => "delete-button" %>
@@ -87,7 +87,8 @@
   </div><br>
   <%else%>
 
-   <h3 id='no-cards'> No cards here yet!</h3>
+   <h3 id='no-cards'>Kanye: "Select or create some cards. While your at it don't forget I'm a lyrical genius."</h3>
+   <img id="kanye" src="http://i1264.photobucket.com/albums/jj493/wmitchel1/tumblr_m320tlkm0Q1rue873o1_400_zps83ee6b62.png">
     </div><br>
 
   <%end%>
@@ -103,7 +104,7 @@
   </div>
 
   </div>
-  
+
 
 
 </div>
@@ -121,4 +122,3 @@
 
 
 </body>
-
