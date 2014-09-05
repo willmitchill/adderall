@@ -68,7 +68,7 @@ University.create!(
 )
 
 University.create!(
-  name: "Université du Québec à Montréal",
+  name: "Universite du Quebec a Montreal",
   city: "Montreal"
 )
 
@@ -184,7 +184,7 @@ University.create!(
 
 University.create!(
   name: "Universite du Quebec a Trois-Rivieres",
-  city: "Trois-Rivières"
+  city: "Trois-Rivieres"
 )
 
 University.create!(
