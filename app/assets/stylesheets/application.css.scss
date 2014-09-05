@@ -170,7 +170,7 @@ $cardColor: white;
 
   .card {
       position: absolute;
-      background-image: url('https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-xpf1/v/t34.0-12/10578844_10152797669608619_532078760_n.jpg?oh=7b62ad6e335333d3af5a9505e035c0bc&oe=540956B8&__gda__=1409918092_7a5f6531d0085b704db0e2295ced9822');
+      background-image: url('http://i1264.photobucket.com/albums/jj493/wmitchel1/yellow_card_zps9104c283.jpg');
       height: 100%;
       width: 100%;
       float:left;
@@ -280,6 +280,7 @@ $cardColor: white;
 #flashcard-title{
   text-align: center;
   font-size: 35px;
+  background: rgba(255, 255, 255, 0.82);
 
 
 }
@@ -395,4 +396,11 @@ $cardColor: white;
 #login {
   float:right;
   display:inline;
+}
+
+
+#no-cards{
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.3), -12px 0 8px -4px rgba(31, 73, 125, 0.3);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.93);
 }

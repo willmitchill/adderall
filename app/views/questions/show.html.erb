@@ -17,7 +17,7 @@
       <div class="answer-upvotes"><span><%= answer.upvote_count %></span> Likes</div>
       <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), university_course_question_answer_path(answer.question.course.university.id, answer.question.course.id, answer.question, answer), method: :delete, :class => "delete-button" %>
       <% if answer.answer_upvotes.where(user_id: current_user.id) == [] %>
-      <button type="AnswerUpvote" obj_id="<%= answer.id %>" class="answer-upvote heart"><span class="glyphicon glyphicon-heart"></span></button>
+      <button type="AnswerUpvote" obj_id="<%= answer.id %>" class="answer-upvote heart" id="answer-heart"><span class="glyphicon glyphicon-heart"></span></button>
     </div>
     <% end %>
     <% end %>
