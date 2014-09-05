@@ -59,7 +59,7 @@
           <h2><%= note.title %></h2>
           <div class="note-upvotes"><span><%= note.upvote_count %></span> Likes</div>
           <% if note.user_id == current_user.id %>
-            <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), university_course_note_path(note.course.university.id, note.course.id, note), method: :delete, :class => "delete-button" %>
+            <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), university_course_note_path(note.course.university.id, note.course.id, note), method: :delete, :class => "delete-pdf" %>
           <% end %>
           <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
           <% if note.note_upvotes.where(user_id: current_user.id) == [] %>

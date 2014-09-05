@@ -13,7 +13,7 @@
     <div id="signup-container">
       <div id="signup-background">
         <h3>Sign up for free!</h3>
-        <%= form_for :user, url: url_for(controller: 'users', action: 'create') do |f| %>
+        <%= form_for :user, url: url_for(controller: 'users', action: 'create') do |f| %>        
         <div>
           <%= f.label "username", "Username" %><br>
           <%= f.text_field "username", :required => true%>
