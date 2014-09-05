@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :universities do
     resources :courses do
       resources :notes
-      resources :questions
+      resources :questions do
+        resources :answers
+      end
     end
   end
 
@@ -32,7 +34,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :answers
+
 
   post '/upvotes', to: 'upvotes#create'
 

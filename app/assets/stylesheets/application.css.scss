@@ -17,7 +17,11 @@
  @import "compass";
 
 
- @import url(http://fonts.googleapis.com/css?family=Play|Lato|Amatic+SC|Questrial);
+ @import url(http://fonts.googleapis.com/css?family=Play|Lato|Amatic+SC|Questrial|Josefin+Sans:600);
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+}
 
 .university {
 
@@ -70,7 +74,7 @@ margin-left: 30px;
   background-color: #f7fbf7;
   padding: 8px 15px;
   margin: 10px;
-  color: #53dc54;
+  color: #000000;
   border-radius: 13px;
   float:right;
   display: inline;
@@ -215,7 +219,7 @@ $cardColor: white;
 }
 #flashcard-title{
   text-align: center;
-  font-size: 30px;
+  font-size: 35px;
 
 
 }
@@ -240,6 +244,48 @@ $cardColor: white;
 #hide-button{
   margin-left:90px;
   font-size: 1.5em;
+  background-color: #393937;
+  padding: 8px 15px;
+  margin: 10px;
+  color: #eef3ee;
+  border-radius: 13px;
+  border: 2px solid #4fd1d4;
+}
+
+
+#login {
+  float:right;
+  display:inline;
+}
+
+.form-control {
+
+}
+
+.navbar-form {
+  margin-top: -37px;
+}
+
+// .form-group {
+//
+// }
+//
+#login-email {
+  margin-right: 10px;
+}
+//
+// #login-password {
+//   display: inline!important;
+//   width: 50%;
+// }
+//
+// #login-button {
+//   display: inline!important;
+// }
+
+
+.ask-q-button {
+  font-size: 1.5em;
 background-color: #393937;
 padding: 8px 15px;
 margin: 10px;
@@ -248,8 +294,22 @@ border-radius: 13px;
 border: 2px solid #4fd1d4;
 }
 
+.answer-submit {
+    font-size: 1.5em;
+  background-color: #393937;
+  padding: 8px 15px;
+  margin: 10px;
+  color: #eef3ee;
+  border-radius: 13px;
+  border: 2px solid #4fd1d4;
+}
 
-#login {
-  float:right;
-  display:inline;
+#answer-field {
+  height: 90px;
+}
+
+.glyphicon-heart {
+  color: red;
+  border:0;
+  background: rgba(255, 255, 255, 0);
 }

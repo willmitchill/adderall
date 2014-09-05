@@ -22,7 +22,7 @@
 
       <div id="note">
         <div id="notebox-info">
-          <div id="course-name"><p><font color="#4fd1d4"><%= link_to @course.university.name, university_path(@course.university), method: :get %>, &nbsp<%= @course.name %></font></p></div><div id="explain"><p>Share a test, assignment or note.</p></div> 
+          <div id="course-name"><p><font color="#4fd1d4"><%= link_to @course.university.name, university_path(@course.university), method: :get %>, &nbsp<%= @course.name %></font></p></div><div id="explain"><p>Share a test, assignment or note.</p></div>
 
           <div id="pad-this"><span class="search-box"><input class="type_text search-courses" id="search-text" placeholder="Search"><button type="button" class="btn btn-default" id="upload" data-toggle="modal" data-target="#modal-1">Upload</button></div>
           <div class="modal" id="modal-1" tabindex="1" role="dialog">
@@ -36,6 +36,7 @@
                   <%= form_for @note, url: url_for(controller: 'notes', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
                   <p>
                     <label>Upload a Test or Assignment!</label>
+                    <p>( For the time being must be a PDF: <a href="http://www.freepdfconvert.com/" target="_blank">Converter Here</a> )<p>
                     <%= f.file_field :note_file %>
                     <div>
                       <%= f.label "Title" %><br>
@@ -56,14 +57,17 @@
         <% @notes.order(:upvote_count).reverse.each do |note| %>
         <div class="notes">
           <h2><%= note.title %></h2>
+          <div class="note-upvotes"><span><%= note.upvote_count %></span> Likes</div>
           <% if note.user_id == current_user.id %>
-            <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), university_course_note_path(note, note.course.id, note.course.university.id), :method => :destroy, :class => "delete-button" %>
+            <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), university_course_note_path(note.course.university.id, note.course.id, note), method: :delete, :class => "delete-button" %>
           <% end %>
           <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
           <% if note.note_upvotes.where(user_id: current_user.id) == [] %>
-            <button type="NoteUpvote" obj_id="<%= note.id %>" class="note-upvote heart"><span class="glyphicon glyphicon-heart"></span></button>
-          <span><%= note.upvote_count %>&nbsp Likes</span>
+          <button type="NoteUpvote" obj_id="<%= note.id %>" class="note-upvote heart"><span class="glyphicon glyphicon-heart"></span></button>
+
         </div>
+
+
         <% end %>
 
 
@@ -78,7 +82,7 @@
           <%= form_for @question, url: url_for(controller: 'questions', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
           <p>Ask a question about this course</p>
           <%= f.text_area :question, size: "60x8" %>
-          <%= f.submit "Ask" %>
+          <%= f.submit "Ask", class: "ask-q-button" %>
           <% end %>
         </div>
 
@@ -87,7 +91,10 @@
           <h3>Question: &nbsp<%= question.question %></h3>
           <p><%= question.answers.count%>&nbsp <%= link_to "Answers", university_course_question_path(@course.university, @course, question), method: :get %></p>
           <p>Author: <%= User.find(question.user_id).firstname %></p>
+          <% if question.user_id == current_user.id %>
+            <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), university_course_question_path(question.course.university.id, question.course.id, question), method: :delete, :class => "delete-button" %>
           <br>
+          <% end %>
 
 
           <% end %>

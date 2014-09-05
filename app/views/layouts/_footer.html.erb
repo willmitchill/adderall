@@ -4,20 +4,17 @@
     <div class="nav-butz">
       <small>
         <% if current_user %>
-        <%= link_to "Log out", session_path("current"), method: :delete %><%=link_to "Dashboard", profile_path%>
+        <%= link_to "Log out", session_path("current"), method: :delete %><%=link_to "Flashcards", profile_path%>
           <%= link_to "Universities", universities_path %>
         <% else %>
-        <div id="login">
-          <%= form_tag sessions_path(current_user) do %>
-            <span>
-              <%= label_tag "email" %><br/>
-              <%= text_field_tag "email"  %>
-            </span>
-            <span>
-              <%= label_tag :password %><br/>
-              <%= password_field_tag :password  %>
-            </span>
-            <span><%= submit_tag "Log In" %></span>
+        <div id="login" class="form-group">
+          <%= form_tag sessions_path(current_user), class: "navbar-form navbar-right" do %>
+
+              <%= text_field_tag :email, nil, class: "form-control", id: "login-email", placeholder: "email"  %>
+
+              <%= password_field_tag :password, nil, class: "form-control", id: "login-password", placeholder: "password"  %>
+
+            <%= submit_tag "Log In", id: "login-button" %>
           <% end %>
         </div>
         <% end %>

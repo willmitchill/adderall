@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
 
     if @answer.save
 
-      redirect_to university_course_path(params[:university_id], params[:course_id],notice: "Answer submitted successfully!")
+      redirect_to university_course_question_path(params[:university_id], params[:course_id], params[:question_id], notice: "Answer submitted successfully!")
 
 
 
@@ -21,7 +21,9 @@ class AnswersController < ApplicationController
   def destroy
     @answer = Answer.find(params[:id])
     @answer.destroy
-    redirect_to university_course_question_path
+    @answer.save
+
+    redirect_to university_course_question_path(@answer.question.course.university.id, @answer.question.course.id, @answer.question, @answer)
   end
 
   protected

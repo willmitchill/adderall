@@ -4,7 +4,7 @@ class UpvotesController < ApplicationController
   end
 
   def create
-    @upvote = params[:type].constantize.new(upvote_params)
+    @upvote = params[:upvote][:type].constantize.new(upvote_params)
     @upvote.user_id = current_user.id
     if @upvote.save
       render json: @upvote

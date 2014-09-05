@@ -3,6 +3,7 @@ $(document).ready(function() {
 
 
   $( ".answer-upvote" ).on( "click", function() {
+    var $this = $(this);
     var type = $( this ).attr("type");
     var id = $( this ).attr("obj_id");
     $.ajax({
@@ -13,13 +14,17 @@ $(document).ready(function() {
       },
       url: "/upvotes/",
       }).done(function() {
-        $( this ).remove();
+        var currentUpvoteValue = $this.parent('.answer').children('.answer-upvotes').children('span').first().text();
+        var newUpvoteValue = parseInt(currentUpvoteValue) + 1;
+        $this.parent('.answer').children('.answer-upvotes').children('span').first().text(newUpvoteValue);
+        $this.remove();
       });
     });
 
 
 
     $( ".note-upvote" ).on( "click", function() {
+      var $this = $(this);
       var type = $( this ).attr("type");
       var id = $( this ).attr("obj_id");
       $.ajax({
@@ -30,8 +35,10 @@ $(document).ready(function() {
         },
         url: "/upvotes/",
         }).done(function() {
-
-          $( this ).remove();
+          var currentUpvoteValue = $this.parent('.notes').children('.note-upvotes').children('span').first().text();
+          var newUpvoteValue = parseInt(currentUpvoteValue) + 1;
+          $this.parent('.notes').children('.note-upvotes').children('span').first().text(newUpvoteValue);
+          $this.remove();
         });
       });
 

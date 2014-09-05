@@ -28,7 +28,8 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-    redirect_to university_course_notes_path
+    @question.save
+    redirect_to university_course_path(@question.course.university.id, @question.course.id)
   end
 
   protected

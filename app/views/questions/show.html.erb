@@ -2,18 +2,23 @@
   <div id="answer-container">
     <h1>Question: &nbsp<%= @question.question %></h1>
 
-    <%= form_for @answer, url: url_for(controller: 'answers', action: 'create', course_id: @question.course.id, university_id: @question.course.university.id) do |f| %>
-      <%= f.text_field :answer, size: "80x80" %>
+    <%= form_for @answer, url: url_for(controller: 'answers', action: 'create', course_id: @question.course.id, university_id: @question.course.university.id, question_id: @question.id) do |f| %>
+      <%= f.text_area :answer, size: "80x80", id: "answer-field" %>
       <%= hidden_field_tag "question_id", @question.id %>
-      <%= f.submit "Answer" %>
+      <%= f.submit "Answer", class: "answer-submit" %>
     <% end %>
 
     <h3>Answers:</h3>
 
     <% @question.answers.each do |answer| %>
-    <h3><%= User.find(answer.user_id).firstname %>: &nbsp<%= answer.answer %></h3>
-    <h4>Upvotes: <%= answer.upvote_count %></h4>
-    <button type="AnswerUpvote" obj_id="<%= answer.id %>" class="note-upvote heart"><span class="glyphicon glyphicon-heart"></span></button>
+    <div class="answer">
+      <h3><%= User.find(answer.user_id).firstname %>: &nbsp<%= answer.answer %></h3>
+      <div class="answer-upvotes"><span><%= answer.upvote_count %></span> Likes</div>
+      <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), university_course_question_answer_path(answer.question.course.university.id, answer.question.course.id, answer.question, answer), method: :delete, :class => "delete-button" %>
+      <% if answer.answer_upvotes.where(user_id: current_user.id) == [] %>
+      <button type="AnswerUpvote" obj_id="<%= answer.id %>" class="answer-upvote heart"><span class="glyphicon glyphicon-heart"></span></button>
+    </div>
+    <% end %>
     <% end %>
   </div>
 </div>
