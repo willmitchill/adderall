@@ -4,7 +4,6 @@
     <div class="nav-butz">
       <small>
         <% if current_user %>
-        
         <%= link_to "Log out", session_path("current"), method: :delete %><%=link_to "Flashcards", profile_path%>
           <%= link_to "Universities", universities_path %>
         <% else %>
