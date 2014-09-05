@@ -17,7 +17,7 @@
  @import "compass";
 
 
- @import url(http://fonts.googleapis.com/css?family=Play|Lato|Amatic+SC|Questrial|Josefin+Sans:600);
+ @import url(http://fonts.googleapis.com/css?family=Play|Lato:300|Amatic+SC|Questrial|Josefin+Sans:600);
 
 body {
   font-family: 'Josefin Sans', sans-serif;
@@ -71,23 +71,22 @@ margin-left: 30px;
 
 
 .nav-butz a {
-  background-color: #f7fbf7;
+  background-color: #4fd1d4;
   padding: 8px 15px;
   margin: 10px;
-  color: #000000;
-  border-radius: 13px;
+  color: #fff;
+  border-radius: 10px;
   float:right;
   display: inline;
-  border: 2px solid #4fd1d4;
-
+  border: 1px solid #4fd1d4;
   margin-top: -40px;
 }
 
 .nav-butz a:hover {
   text-decoration: none;
-  color: #4fd1d4;
-  border: 2px solid #53dc54;
-  background-color: #989898;
+  color: #fff;
+  border: 1px solid #FFC266;
+  background-color: #FFC266;
 
 }
 
@@ -189,24 +188,34 @@ $cardColor: white;
 .opaque-form-1{
   background: rgba(255, 255, 255, 0.93);
   padding: 20px;
-  border: 8px solid #4fd1d4;
+  border: 0px solid #4fd1d4;
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.3), -12px 0 8px -4px rgba(31, 73, 125, 0.3);
+  text-align: center;
 }
 #opaque-form{
   margin-top: 40px;
   background: rgba(255, 255, 255, 0.93);
   padding: 20px;
-  border: 8px solid #4fd1d4;
+  border: 0px solid #4fd1d4;
   margin-bottom: 20px;
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.3), -12px 0 8px -4px rgba(31, 73, 125, 0.3);
+  text-align: center;
 }
 #opaque-sets{
   margin-top: 20px;
   background: rgba(255, 255, 255, 0.93);
   padding: 20px;
-  border: 8px solid #4fd1d4;
+  border: 0px solid #4fd1d4;
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.3), -12px 0 8px -4px rgba(31, 73, 125, 0.3);
+  }
+.button {
+  input {
+    margin-top: 10px;
+    background: #4fd1d4;
+    color: #fff;
+    padding: 10px;
 
   }
-.button{
-  margin-top: 10px;
 }
 
 
@@ -245,12 +254,12 @@ $cardColor: white;
 #hide-button{
   margin-left:90px;
   font-size: 1.5em;
-  background-color: #393937;
+  background-color: #4fd1d4;
   padding: 8px 15px;
   margin: 10px;
   color: #eef3ee;
   border-radius: 13px;
-  border: 2px solid #4fd1d4;
+  border: 0px solid #4fd1d4;
 //
 }
 
@@ -288,12 +297,13 @@ $cardColor: white;
 
 .ask-q-button {
   font-size: 1.5em;
-background-color: #393937;
-padding: 8px 15px;
-margin: 10px;
-color: #eef3ee;
-border-radius: 13px;
-border: 2px solid #4fd1d4;
+  background-color: #393937;
+  padding: 8px 15px;
+  margin: 10px;
+  color: #eef3ee;
+  border-radius: 13px;
+  border: 2px solid #4fd1d4;
+  margin-left: 370px;
 }
 
 .answer-submit {
@@ -317,10 +327,12 @@ border: 2px solid #4fd1d4;
 }
 
 
-.delete-button{
-  top: 5px;
-  right: 5px;
-  position: absolute;
+.delete-pdf{
+  img{
+     height:15px;
+    width:15px;
+    float: right;
+  }
 }
 
 .delete-button-1 {

@@ -24,7 +24,8 @@
         <div id="notebox-info">
           <div id="course-name"><p><font color="#4fd1d4"><%= link_to @course.university.name, university_path(@course.university), method: :get %>, &nbsp<%= @course.name %></font></p></div><div id="explain"><p>Share a test, assignment or note.</p></div>
 
-          <div id="pad-this"><span class="search-box"><input class="type_text search-courses" id="search-text" placeholder="Search"><button type="button" class="btn btn-default" id="upload" data-toggle="modal" data-target="#modal-1">Upload</button></div>
+          <div id="pad-this"><span class="search-box"><input class="type_text search-courses" id="search-text" placeholder="Search">
+            <button type="button" class="btn btn-default" id="upload" data-toggle="modal" data-target="#modal-1">Upload</button></div>
           <div class="modal" id="modal-1" tabindex="1" role="dialog">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -54,40 +55,39 @@
             </div>
           </div>
         </div>
-        <% @notes.order(:upvote_count).reverse.each do |note| %>
-        <div class="notes">
-          <h2><%= note.title %></h2>
-          <div class="note-upvotes"><span><%= note.upvote_count %></span> Likes</div>
-          <% if note.user_id == current_user.id %>
-            <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), university_course_note_path(note.course.university.id, note.course.id, note), method: :delete, :class => "delete-button" %>
+        <div class="note-holder">
+          <% @notes.order(:upvote_count).reverse.each do |note| %>
+            <div class="notes">
+              <h2><%= note.title %></h2>
+              <div class="note-upvotes"><span><%= note.upvote_count %></span> Likes</div>
+              <% if note.user_id == current_user.id %>
+                <%= link_to image_tag("http://www.iconsdb.com/icons/download/gray/x-mark-4-512.png"), university_course_note_path(note.course.university.id, note.course.id, note), method: :delete, :class => "delete-pdf" %>
+              <% end %>
+              <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
+              <% if note.note_upvotes.where(user_id: current_user.id) == [] %>
+                <button type="NoteUpvote" obj_id="<%= note.id %>" class="note-upvote heart"><span class="glyphicon glyphicon-heart"></span></button>
+              <% end %>
+            </div>
           <% end %>
-          <%= image_tag note.note_file.web_thumb, :class => "fancypdf", :rel => "800-1200", :data => { :pdf_url => note.note_file.url } %>
-          <% if note.note_upvotes.where(user_id: current_user.id) == [] %>
-          <button type="NoteUpvote" obj_id="<%= note.id %>" class="note-upvote heart"><span class="glyphicon glyphicon-heart"></span></button>
-
         </div>
 
-
-        <% end %>
-
-
-        <% end %>
       </div>
 
       <div id="question-answer-container">
         <h2>Class Question Board</h2>
 
 
-        <div>
+
           <%= form_for @question, url: url_for(controller: 'questions', action: 'create', course_id: @course.id, university_id: @course.university.id) do |f| %>
           <p>Ask a question about this course</p>
           <%= f.text_area :question, size: "60x8" %>
+          <br>
           <%= f.submit "Ask", class: "ask-q-button" %>
           <% end %>
-        </div>
 
-        <% @course.questions.each do |question| %>
         <div id="question-container">
+        <% @course.questions.each do |question| %>
+
           <h3>Question: &nbsp<%= question.question %></h3>
           <p><%= question.answers.count%>&nbsp <%= link_to "Answers", university_course_question_path(@course.university, @course, question), method: :get %></p>
           <p>Author: <%= User.find(question.user_id).firstname %></p>
