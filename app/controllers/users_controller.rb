@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to universities_path, notice: "Yo #{@user.firstname}, time to get you some A's!"
     else
-      render :new , notice: "woops, try doing that again"
+      redirect_to landing_index_path, notice: "Sign up failed, try again"
     end
   end
 
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation, :card_set_id)
+    params.require(:user).permit(:username,:email, :firstname, :lastname, :password, :password_confirmation, :card_set_id)
 
   end
 
