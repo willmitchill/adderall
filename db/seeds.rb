@@ -53,7 +53,7 @@ University.create!(
 )
 
 University.create!(
-  name: "Université de Montréal",
+  name: "Universite de Montreal",
   city: "Montreal"
 )
 
@@ -158,7 +158,7 @@ University.create!(
 )
 
 University.create!(
-  name: "Université de Sherbrooke",
+  name: "Universite de Sherbrooke",
   city: "Sherbrooke"
 )
 
@@ -178,12 +178,12 @@ University.create!(
 )
 
 University.create!(
-  name: "HEC Montréal",
+  name: "HEC Montreal",
   city: "Montreal"
 )
 
 University.create!(
-  name: "Université du Québec à Trois-Rivières",
+  name: "Universite du Quebec a Trois-Rivieres",
   city: "Trois-Rivières"
 )
 
@@ -243,12 +243,12 @@ University.create!(
 )
 
 University.create!(
-  name: "Université de Moncton",
+  name: "University de Moncton",
   city: "Moncton"
 )
 
 University.create!(
-  name: "Université du Québec à Chicoutimi",
+  name: "Universite du Quebec a Chicoutimi",
   city: "Chicoutimi"
 )
 
@@ -258,12 +258,12 @@ University.create!(
 )
 
 University.create!(
-  name: "Université du Québec à Rimouski",
+  name: "Universite du Quebec a Rimouski",
   city: "Rimouski"
 )
 
 University.create!(
-  name: "Université du Québec en Outaouais",
+  name: "Universite du Quebec en Outaouais",
   city: "Gatineau"
 )
 
