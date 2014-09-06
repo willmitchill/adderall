@@ -33,15 +33,28 @@ a {
 
   }
 }
+#new_question {
+  display: inline-block;
+}
+
+#question-container {
+  display: inline-block;
+  overflow: scroll;
+  height: 275px;
+  width: 400px;
+  margin-left: 30px;
+}
 
 #question-answer-container {
-  border: 8px solid #4fd1d4;
+  border: 0px solid #4fd1d4;
   border-radius:4px;
   background-color: rgba(255, 255, 255, 0.93);
   padding: 10px 40px 10px 90px;
   margin-top: 75px;
-  margin-right: 380px;
-  margin-bottom:75px;
+  margin-right: 100px;
+  // margin-bottom:75px;
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.3), -12px 0 8px -4px rgba(31, 73, 125, 0.3);
+
 }
 
 #note-container {
@@ -51,7 +64,7 @@ a {
     color: #333;
     background-color: #fff;
     border-color: #ccc;
-    margin-top: -95px;
+    margin-left: 30px;
   }
 
   .search-courses {
@@ -66,6 +79,10 @@ a {
       padding: 10px 15px 0 0;
     }
 
+    .note-holder{
+      text-align: center;
+    }
+
     .heart {
       display: inline;
       border: none;
@@ -73,6 +90,9 @@ a {
       background: rgba(255, 255, 255, 0);
       outline: none;
       color: #4fde4a;
+      position: absolute;
+      margin-left: -40px;
+
       span {
         color:red;
         font-size: 25px;
@@ -102,19 +122,22 @@ font-size: 30px;
 }
 
 #note {
-  border: 8px solid #4FD1d4;
+  border: 0px solid #4FD1d4;
   border-radius:4px;
   margin-top:35px;
   margin-right: 100px;
   background: rgba(255, 255, 255, 0.94);
   padding: 30px;
-  #upload {
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.3), -12px 0 8px -4px rgba(31, 73, 125, 0.3);
+
+  &#upload {
     float: right;
+
   }
 }
 
 #notebox-info {
-
+  text-align: center;
 }
 
 

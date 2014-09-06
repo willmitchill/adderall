@@ -11,27 +11,49 @@
   color: inherit;
   height:540px;
 
+  #signup-background {
+    margin-left: -12px;
+    margin-top: 5px;
+    h3 {
+      color: #4fd1d4;
+      font-size: 40px;
+      font-family: 'Josefin Sans', sans-serif;
+      margin-left: -45px;
+      text-shadow: 2px 2px #666;
+    }
+    form div {
+      margin-bottom: 10px;
+      input {
+
+        padding: 5px 10px 5px 10px;
+      }
+    }
+  }
 
   #signup-container {
-    margin:1px 90px 0 0;
+    margin:8px 90px 0 0;
     background-color:rgba(255, 255, 255, 0.87);
     width:40%;
     float: right;
     padding: 3px 30px 30px 175px;
+    box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.3), -12px 0 8px -4px rgba(31, 73, 125, 0.3);
+    height: 400px;
 
     input[type="submit"] {
-      font-size: 1.5em;
-      background-color: #393937;
+      font-size: 1em;
+      background-color: #4fd1d4;
       padding: 8px 15px;
-      margin: 10px;
+      margin-left: 40px;
+      margin-top: 4px;
       color: #eef3ee;
       border-radius: 13px;
-      border: 2px solid #4fd1d4;
+      border: 1px solid #4fd1d4;
     }
   }
 }
 
 .container {
+  family: 'lato';
   background: rgba(255, 255, 255, 0.87);
   height: 330px;
   width:40%;
@@ -39,9 +61,14 @@
   float:left;
   margin-top:8px;
   margin-left:61px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.3), -12px 0 8px -4px rgba(31, 73, 125, 0.3);
 
   p {
-    font-size: 23px;
+    font-size: 20px;
+    line-height: 1.75;
+
   }
 
 
@@ -114,12 +141,21 @@ section.block-two {
   background: #ecf1f3;
   float: left;
   margin: 1%;
+  &:nth-child(1):hover {
+    background: #FF5050;
+  }
+  &:nth-child(2):hover {
+    background: #3399FF;
+  }
+  &:nth-child(3):hover {
+    background: #5CE6B8;
+  }
 }
 
 .cube img {
 	text-align: center;
   width: 40%;
-  margin: 8% 35%;
+  margin: 8% 30%;
 }
 
 .cube img:hover {
