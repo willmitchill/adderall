@@ -19,7 +19,7 @@
       font-size: 40px;
       font-family: 'Josefin Sans', sans-serif;
       margin-left: -45px;
-      text-shadow: 2px 2px #666;
+      text-shadow: 2px 2px #E0E0E0;
     }
     form div {
       margin-bottom: 10px;
@@ -48,6 +48,12 @@
       color: #eef3ee;
       border-radius: 13px;
       border: 1px solid #4fd1d4;
+        &:hover {
+          text-decoration: none;
+          color: #fff;
+          border: 1px solid #FFC266;
+          background-color: #FFC266;
+        }
     }
   }
 }
@@ -141,15 +147,6 @@ section.block-two {
   background: #ecf1f3;
   float: left;
   margin: 1%;
-  &:nth-child(1):hover {
-    background: #FF5050;
-  }
-  &:nth-child(2):hover {
-    background: #3399FF;
-  }
-  &:nth-child(3):hover {
-    background: #5CE6B8;
-  }
 }
 
 .cube img {

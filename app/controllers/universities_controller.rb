@@ -27,7 +27,7 @@ class UniversitiesController < ApplicationController
     if @university.save
       redirect_to university_path
     else
-      render:new
+      render :new
     end
   end
 

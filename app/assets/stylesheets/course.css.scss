@@ -20,7 +20,7 @@ a {
 }
 
 .fancypdf {
-  border: 1px solid #3a3a3a;
+  border: 1px solid #BEBCBC;
   border-radius: 2px;
 
   width:120px;
@@ -58,13 +58,13 @@ a {
 }
 
 #note-container {
-  padding: 10px 40px 10px 90px;
+  padding: 10px 40px 60px 90px;
 
   #upload {
     color: #333;
     background-color: #fff;
     border-color: #ccc;
-    margin-left: 30px;
+    margin: -8px 0 0 30px;
   }
 
   .search-courses {
@@ -96,7 +96,7 @@ a {
       span {
         color:red;
         font-size: 25px;
-        margin: 3px;
+        margin: -13px;
         padding-top:3px;
       }
 
@@ -153,19 +153,19 @@ font-size: 30px;
 }
 
 #login-button {
-  background-color: #f7fbf7;
+  background-color: #4fd1d4;
   padding: 8px 15px;
-  margin: 10px;
-  color: #53dc54;
-  border-radius: 13px;
-  float: right;
+  margin: -2px;
+  color: #fff;
+  border-radius: 10px;
+  float:right;
   display: inline;
-  border: 2px solid #4fd1d4;
-  margin-top: -40px;
+  border: 1px solid #4fd1d4;
+
   &:hover{
     text-decoration: none;
-    color: #4fd1d4;
-    border: 2px solid #53dc54;
-    background-color: #989898;
+    color: #fff;
+    border: 1px solid #FFC266;
+    background-color: #FFC266;
   }
 }

@@ -86,12 +86,7 @@
 #course {
   font-size: 25px;
 }
-.course {
 
-}
-.course-list {
-
-}
 #select {
   display: inline;
   margin: 0px 3% 19% 30%;
@@ -99,6 +94,7 @@
 
 #add-course-button {
   display:inline;
+  margin-top: -8px;
 }
 
 #list-box .type_text {
@@ -112,14 +108,18 @@
 
 .modal-body input[type="submit"] {
   font-size: 1.5em;
-  background-color: #393937;
+  background-color: #4fd1d4;
   padding: 8px 15px;
   margin: 10px;
-  color: #eef3ee;
-  border-radius: 13px;
-  border: 2px solid #4fd1d4;
-
-
+  color: #fff;
+  border-radius: 10px;
+  border: 1px solid #4fd1d4;
+    &:hover {
+      text-decoration: none;
+      color: #fff;
+      border: 1px solid #FFC266;
+      background-color: #FFC266;
+    }
 }
 
 .modal-header {
