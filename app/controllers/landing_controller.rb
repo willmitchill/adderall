@@ -9,7 +9,6 @@ class LandingController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
       session[:user_id] = @user.id
       redirect_to universities_path, notice: "Yo #{@user.firstname}, time to get you some A's!"

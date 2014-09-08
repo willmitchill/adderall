@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   has_many :courses
   has_many :notes
   has_many :upvotes
-  has_many :flashcards
-  has_many :cardsets
+  has_many :flashcards, dependent: :destroy
+  has_many :cardsets, dependent: :destroy
   has_secure_password
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true

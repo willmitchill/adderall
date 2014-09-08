@@ -5,12 +5,10 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
-
     @question = Question.new
     @answer = Answer.new
     @notes = @course.notes
     @note = @course.notes.build
-
   end
 
   def edit

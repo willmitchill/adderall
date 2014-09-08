@@ -5,7 +5,6 @@ class Answer < ActiveRecord::Base
 
   has_many :answer_upvotes, :foreign_key => :obj_id
 
-
   validates :answer, presence: true
 
 
