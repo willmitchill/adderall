@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to universities_path, notice: "Yo #{@user.firstname}, time to get you some A's!"
     else
-      redirect_to landing_index_path, notice: "Sign up failed, try again"
+      render :new
     end
   end
 

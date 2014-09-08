@@ -1,33 +1,74 @@
-<h3>Sign up for free adderall, don't even have to give 5 bucks to your sketchy friend"</h3>
- <%= form_for @user do |f| %>
-  <% if @user.errors.full_messages.any? %>
-      <% @user.errors.full_messages.each do |error_message| %>
-      <%= error_message if @user.errors.full_messages.first == error_message %> <br />
-      <% end %>
-    <% end %>
-   <div>
-    <%= f.label "username", "Username" %><br>
-    <%= f.text_field "username", :required => true %>
+
+
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div id="landing-container">
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Study Smart.</h1>
+      <% if current_user %>
+      <h3>Welcome <%=current_user.username%></h3>
+      <%end%>
+      <p>Adderall provides Canadian University students with a place to interact with others who are in or who previously took classes they're enrolled in. Find your University, find your classes, find and share old tests and assignments. While you're at it use our Q & A board to ask your classmates some questions and use our flashcards to study what you've learned!</p>
+
+      <hr>
+    </div>
+    <div id="signup-container">
+      <div id="signup-background">
+        <h3>Sign up for free!</h3>
+        <%= form_for :user, url: url_for(controller: 'users', action: 'create') do |f| %>  
+          <%= @user.errors.full_messages.first if @user.errors.any? %>
+        <div>
+
+          <%= f.text_field "username", :required => true, :placeholder => "username" %>
+        </div>
+        <div>
+
+          <%= f.text_field "firstname", :required => true, :placeholder => "firstname" %>
+        </div>
+        <div>
+
+          <%= f.text_field "lastname", :required => true, :placeholder => "lastname" %>
+        </div>
+        <div>
+
+          <%= f.text_field "email", :required => true, :placeholder => "email" %>
+        </div>
+        <div>
+
+          <%= f.password_field "password", :required => true, :placeholder => "password" %>
+        </div>
+        <div>
+
+          <%= f.password_field "password_confirmation" , :required => true, :placeholder => "password confirmation" %>
+        </div>
+        <div><%= f.submit "Submit" %></div>
+        <% end %>
+      </div>
+    </div>
   </div>
- <div>
-    <%= f.label "firstname", "First Name" %><br>
-    <%= f.text_field "firstname", :required => true %>
-  </div>
-  <div>
-     <%= f.label "lastname", "Last Name" %><br>
-     <%= f.text_field "lastname", :required => true %>
-   </div>
-  <div>
-    <%= f.label "email", "Email" %><br>
-    <%= f.text_field "email", :required => true %>
-  </div>
-  <div>
-    <%= f.label "password" %><br>
-    <%= f.password_field "password", :required => true %>
-  </div>
-  <div>
-    <%= f.label "password_confirmation" %><br>
-    <%= f.password_field "password_confirmation", :required => true %>
-  </div>
-  <div><%= f.submit "Submit" %></div>
-<% end %>
+
+  <section class="block">
+    <div class="inner">
+      <div class="cube">
+        <img src="http://i1344.photobucket.com/albums/p652/meganryll/logo3_zpsdaf795c4.png" />
+        <p>Find and share tests and assignments specific to your University classes.</p>
+      </div>
+      <div class="cube">
+        <img src="http://i1344.photobucket.com/albums/p652/meganryll/icon1_zps7adf1536.png" />
+        <p>Create flash cards and study them.</p>
+      </div>
+      <div class="cube">
+        <img src="http://i1344.photobucket.com/albums/p652/meganryll/icon2_zps735480f1.png" />
+
+        <p>Ask and answer questions specific to your University classes.</p>
+      </div>
+    </div>
+
+    <br class="clearfix" />
+    <div class="block-p">
+
+    </div>
+
+  </section>
+</div>

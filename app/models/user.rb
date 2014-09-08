@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   has_many :flashcards
   has_many :cardsets
   has_secure_password
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
   validates :password, presence: true
   validates :password, length: {minimum: 6, maximum: 15}
   validates :firstname, presence: true
   validates :lastname, presence: true
-  validates :username, presence: true
+  validates :username, presence: true, length: {minimum: 6, maximum: 15}, uniqueness: true
   # attr_accessor :password, :password_confirmation
 end
