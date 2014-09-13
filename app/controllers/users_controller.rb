@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:user_id] = @user.id
+      cookies[:auth_token] = @user.auth_token
+      #app controller change caused error
       redirect_to universities_path, notice: "Yo #{@user.firstname}, time to get you some A's!"
     else
       render :new
@@ -27,9 +28,9 @@ class UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:username,:email, :firstname, :lastname, :password, :password_confirmation, :password_reset_token, :card_set_id)
+    params.require(:user).permit(:username,:email, :firstname, :lastname, :password, :password_confirmation, :auth_token, :password_reset_token, :card_set_id)
   end
-  
+
 
 
   def destroy
