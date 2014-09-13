@@ -40,7 +40,7 @@ $(document).ready(function() {
     }
   });
 
-  // amys code
+
 
   $("#note .notes").not(":containsi('" + searchSplit + "')").each(function(e)   {
     $(this).addClass('hiding out').removeClass('in');
@@ -56,10 +56,7 @@ $(document).ready(function() {
       }, 1);
   });
 
-  // end amys code
 
-
-  // jimmys code
 
   $("#courses .course").not(":containsi('" + searchSplit + "')").each(function(e)   {
     $(this).addClass('hiding out').removeClass('in');

@@ -1,12 +1,5 @@
-<h1>Log In</h1>
-<%= form_tag sessions_path(current_user) do %>
-  <span>
-    <%= label_tag "email" %><br/>
-    <%= text_field_tag "email", "",:required => true  %>
-  </span>
-  <span>
-    <%= label_tag "password"%><br/>
-    <%= password_field_tag "password","", :required => true  %>
-  </span>
-  <span><%= submit_tag "Log In" %></span>
-<% end %>
+<p><%= link_to "forgotten password?", new_password_reset_path %></p>
+<div class="field">
+  <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+  <%= label_tag :remember_me %>
+</div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+resources :password_resets
+
   root :to => "landing#index"
 
   resources :landing, only: [:show, :index]
